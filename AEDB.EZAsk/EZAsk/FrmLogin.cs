@@ -25,7 +25,12 @@ namespace EZAsk
         private void FrmLogin_Load(object sender, EventArgs e)
         {
 
-           Console.ReadKey();
+           
+        }
+
+        private void imgLoginPadrao_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

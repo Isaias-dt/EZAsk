@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "FrmForum";
-            this.Text = "FrmForum";
+            this.Text = "Forum EZAsk";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmForum_FormClosed);
             this.ResumeLayout(false);
 
