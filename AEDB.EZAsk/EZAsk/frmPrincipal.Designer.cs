@@ -1,6 +1,6 @@
 ﻿namespace EZAsk
 {
-    partial class frmPrincipal
+    partial class FrmPrincipal
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -96,12 +96,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuFrmPrincipal;
         public System.Windows.Forms.ToolStripMenuItem menuLogin;
         public System.Windows.Forms.ToolStripMenuItem menuCadastra;
         public System.Windows.Forms.ToolStripMenuItem menuForum;
         public System.Windows.Forms.ToolStripMenuItem menuSobre;
+        public System.Windows.Forms.MenuStrip menuFrmPrincipal;
     }
 }
 

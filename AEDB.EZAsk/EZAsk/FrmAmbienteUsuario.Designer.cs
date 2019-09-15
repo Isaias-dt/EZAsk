@@ -1,6 +1,6 @@
 ﻿namespace EZAsk
 {
-    partial class FrmSobre
+    partial class FrmAmbienteUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // FrmSobre
+            // FrmAmbienteUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "FrmSobre";
-            this.Text = "Sobre Software";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmSobre_FormClosed);
-            this.Load += new System.EventHandler(this.FrmSobre_Load);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "FrmAmbienteUsuario";
+            this.Load += new System.EventHandler(this.FrmAmbienteUsuario_Load);
             this.ResumeLayout(false);
 
         }

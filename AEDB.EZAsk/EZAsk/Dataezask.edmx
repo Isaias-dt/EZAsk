@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EZAskModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bairro">
+          <Key>
+            <PropertyRef Name="IDBairro" />
+          </Key>
+          <Property Name="IDBairro" Type="int" Nullable="false" />
+          <Property Name="NomeBairro" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Cidade">
+          <Key>
+            <PropertyRef Name="IDCidade" />
+          </Key>
+          <Property Name="IDCidade" Type="int" Nullable="false" />
+          <Property Name="NomeCidade" Type="varchar" MaxLength="50" />
+          <Property Name="CEP" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Forum">
+          <Key>
+            <PropertyRef Name="IDPost" />
+          </Key>
+          <Property Name="IDPost" Type="int" Nullable="false" />
+          <Property Name="TituloPost" Type="varchar" MaxLength="50" />
+          <Property Name="Usuario" Type="int" />
+          <Property Name="Post" Type="varchar(max)" />
+          <Property Name="RespostaPost" Type="int" />
+        </EntityType>
+        <EntityType Name="Resposta">
+          <Key>
+            <PropertyRef Name="IDResposta" />
+          </Key>
+          <Property Name="IDResposta" Type="int" Nullable="false" />
+          <Property Name="Post" Type="int" />
+          <Property Name="PostResposta" Type="varchar(max)" />
+          <Property Name="Usuario" Type="int" />
+        </EntityType>
+        <EntityType Name="TipoUsuario">
+          <Key>
+            <PropertyRef Name="IDTipoUsuario" />
+          </Key>
+          <Property Name="IDTipoUsuario" Type="int" Nullable="false" />
+          <Property Name="NomeTipoUsuario" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IDUsuario" />
+          </Key>
+          <Property Name="IDUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeUsuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NomeLogin" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailUsuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SenhaUsuario" Type="varchar(max)" Nullable="false" />
+          <Property Name="UsuarioAtivo" Type="bit" />
+          <Property Name="permissao" Type="int" />
+          <Property Name="Cidade" Type="int" />
+          <Property Name="Bairro" Type="int" />
+          <Property Name="TipoUsuario" Type="int" />
+          <Property Name="ImgUsuario" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK_Forum_Resposta">
+          <End Role="Resposta" Type="Self.Resposta" Multiplicity="0..1" />
+          <End Role="Forum" Type="Self.Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resposta">
+              <PropertyRef Name="IDResposta" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="RespostaPost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Forum_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Forum" Type="Self.Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="IDUsuario" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resposta_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Resposta" Type="Self.Resposta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="IDUsuario" />
+            </Principal>
+            <Dependent Role="Resposta">
+              <PropertyRef Name="Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Bairro">
+          <End Role="Bairro" Type="Self.Bairro" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bairro">
+              <PropertyRef Name="IDBairro" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Bairro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Cidade">
+          <End Role="Cidade" Type="Self.Cidade" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cidade">
+              <PropertyRef Name="IDCidade" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Cidade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_TipoUsuario">
+          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUsuario">
+              <PropertyRef Name="IDTipoUsuario" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="TipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EZAskModelStoreContainer">
+          <EntitySet Name="Bairro" EntityType="Self.Bairro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cidade" EntityType="Self.Cidade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Forum" EntityType="Self.Forum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Resposta" EntityType="Self.Resposta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Forum_Resposta" Association="Self.FK_Forum_Resposta">
+            <End Role="Resposta" EntitySet="Resposta" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Forum_Usuario" Association="Self.FK_Forum_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resposta_Usuario" Association="Self.FK_Resposta_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Resposta" EntitySet="Resposta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Bairro" Association="Self.FK_Usuario_Bairro">
+            <End Role="Bairro" EntitySet="Bairro" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Cidade" Association="Self.FK_Usuario_Cidade">
+            <End Role="Cidade" EntitySet="Cidade" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_TipoUsuario" Association="Self.FK_Usuario_TipoUsuario">
+            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EZAskModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bairro">
+          <Key>
+            <PropertyRef Name="IDBairro" />
+          </Key>
+          <Property Name="IDBairro" Type="Int32" Nullable="false" />
+          <Property Name="NomeBairro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuario" Relationship="EZAskModel.FK_Usuario_Bairro" FromRole="Bairro" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Cidade">
+          <Key>
+            <PropertyRef Name="IDCidade" />
+          </Key>
+          <Property Name="IDCidade" Type="Int32" Nullable="false" />
+          <Property Name="NomeCidade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CEP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuario" Relationship="EZAskModel.FK_Usuario_Cidade" FromRole="Cidade" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Forum">
+          <Key>
+            <PropertyRef Name="IDPost" />
+          </Key>
+          <Property Name="IDPost" Type="Int32" Nullable="false" />
+          <Property Name="TituloPost" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario" Type="Int32" />
+          <Property Name="Post" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RespostaPost" Type="Int32" />
+          <NavigationProperty Name="Resposta" Relationship="Self.FK_Forum_Resposta" FromRole="Forum" ToRole="Resposta" />
+          <NavigationProperty Name="Usuario1" Relationship="EZAskModel.FK_Forum_Usuario" FromRole="Forum" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Resposta">
+          <Key>
+            <PropertyRef Name="IDResposta" />
+          </Key>
+          <Property Name="IDResposta" Type="Int32" Nullable="false" />
+          <Property Name="Post" Type="Int32" />
+          <Property Name="PostResposta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario" Type="Int32" />
+          <NavigationProperty Name="Forum" Relationship="Self.FK_Forum_Resposta" FromRole="Resposta" ToRole="Forum" />
+          <NavigationProperty Name="Usuario1" Relationship="EZAskModel.FK_Resposta_Usuario" FromRole="Resposta" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="TipoUsuario">
+          <Key>
+            <PropertyRef Name="IDTipoUsuario" />
+          </Key>
+          <Property Name="IDTipoUsuario" Type="Int32" Nullable="false" />
+          <Property Name="NomeTipoUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuario" Relationship="EZAskModel.FK_Usuario_TipoUsuario" FromRole="TipoUsuario" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="FK_Forum_Resposta">
+          <End Role="Resposta" Type="Self.Resposta" Multiplicity="0..1" />
+          <End Role="Forum" Type="Self.Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resposta">
+              <PropertyRef Name="IDResposta" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="RespostaPost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EZAskEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bairro" EntityType="Self.Bairro" />
+          <EntitySet Name="Cidade" EntityType="Self.Cidade" />
+          <EntitySet Name="Forum" EntityType="Self.Forum" />
+          <EntitySet Name="Resposta" EntityType="Self.Resposta" />
+          <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" />
+          <AssociationSet Name="FK_Forum_Resposta" Association="Self.FK_Forum_Resposta">
+            <End Role="Resposta" EntitySet="Resposta" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <EntitySet Name="Usuario" EntityType="EZAskModel.Usuario" />
+          <AssociationSet Name="FK_Usuario_Bairro" Association="EZAskModel.FK_Usuario_Bairro">
+            <End Role="Bairro" EntitySet="Bairro" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Cidade" Association="EZAskModel.FK_Usuario_Cidade">
+            <End Role="Cidade" EntitySet="Cidade" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Forum_Usuario" Association="EZAskModel.FK_Forum_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Resposta_Usuario" Association="EZAskModel.FK_Resposta_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Resposta" EntitySet="Resposta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_TipoUsuario" Association="EZAskModel.FK_Usuario_TipoUsuario">
+            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IDUsuario" />
+          </Key>
+          <Property Name="IDUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeUsuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NomeLogin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailUsuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SenhaUsuario" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioAtivo" Type="Boolean" />
+          <Property Name="permissao" Type="Int32" />
+          <Property Name="Cidade" Type="Int32" />
+          <Property Name="Bairro" Type="Int32" />
+          <Property Name="TipoUsuario" Type="Int32" />
+          <Property Name="ImgUsuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bairro1" Relationship="EZAskModel.FK_Usuario_Bairro" FromRole="Usuario" ToRole="Bairro" />
+          <NavigationProperty Name="Cidade1" Relationship="EZAskModel.FK_Usuario_Cidade" FromRole="Usuario" ToRole="Cidade" />
+          <NavigationProperty Name="Forum" Relationship="EZAskModel.FK_Forum_Usuario" FromRole="Usuario" ToRole="Forum" />
+          <NavigationProperty Name="Resposta" Relationship="EZAskModel.FK_Resposta_Usuario" FromRole="Usuario" ToRole="Resposta" />
+          <NavigationProperty Name="TipoUsuario1" Relationship="EZAskModel.FK_Usuario_TipoUsuario" FromRole="Usuario" ToRole="TipoUsuario" />
+        </EntityType>
+        <Association Name="FK_Usuario_Bairro">
+          <End Type="EZAskModel.Bairro" Role="Bairro" Multiplicity="0..1" />
+          <End Type="EZAskModel.Usuario" Role="Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bairro">
+              <PropertyRef Name="IDBairro" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Bairro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Cidade">
+          <End Type="EZAskModel.Cidade" Role="Cidade" Multiplicity="0..1" />
+          <End Type="EZAskModel.Usuario" Role="Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cidade">
+              <PropertyRef Name="IDCidade" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Cidade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Forum_Usuario">
+          <End Type="EZAskModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+          <End Type="EZAskModel.Forum" Role="Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="IDUsuario" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Resposta_Usuario">
+          <End Type="EZAskModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+          <End Type="EZAskModel.Resposta" Role="Resposta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="IDUsuario" />
+            </Principal>
+            <Dependent Role="Resposta">
+              <PropertyRef Name="Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_TipoUsuario">
+          <End Type="EZAskModel.TipoUsuario" Role="TipoUsuario" Multiplicity="0..1" />
+          <End Type="EZAskModel.Usuario" Role="Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUsuario">
+              <PropertyRef Name="IDTipoUsuario" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="TipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EZAskModelStoreContainer" CdmEntityContainer="EZAskEntities">
+          <EntitySetMapping Name="Bairro">
+            <EntityTypeMapping TypeName="EZAskModel.Bairro">
+              <MappingFragment StoreEntitySet="Bairro">
+                <ScalarProperty Name="IDBairro" ColumnName="IDBairro" />
+                <ScalarProperty Name="NomeBairro" ColumnName="NomeBairro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cidade">
+            <EntityTypeMapping TypeName="EZAskModel.Cidade">
+              <MappingFragment StoreEntitySet="Cidade">
+                <ScalarProperty Name="IDCidade" ColumnName="IDCidade" />
+                <ScalarProperty Name="NomeCidade" ColumnName="NomeCidade" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Forum">
+            <EntityTypeMapping TypeName="EZAskModel.Forum">
+              <MappingFragment StoreEntitySet="Forum">
+                <ScalarProperty Name="IDPost" ColumnName="IDPost" />
+                <ScalarProperty Name="TituloPost" ColumnName="TituloPost" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="RespostaPost" ColumnName="RespostaPost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resposta">
+            <EntityTypeMapping TypeName="EZAskModel.Resposta">
+              <MappingFragment StoreEntitySet="Resposta">
+                <ScalarProperty Name="IDResposta" ColumnName="IDResposta" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="PostResposta" ColumnName="PostResposta" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoUsuario">
+            <EntityTypeMapping TypeName="EZAskModel.TipoUsuario">
+              <MappingFragment StoreEntitySet="TipoUsuario">
+                <ScalarProperty Name="IDTipoUsuario" ColumnName="IDTipoUsuario" />
+                <ScalarProperty Name="NomeTipoUsuario" ColumnName="NomeTipoUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="EZAskModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="ImgUsuario" ColumnName="ImgUsuario" />
+                <ScalarProperty Name="TipoUsuario" ColumnName="TipoUsuario" />
+                <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+                <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+                <ScalarProperty Name="permissao" ColumnName="permissao" />
+                <ScalarProperty Name="UsuarioAtivo" ColumnName="UsuarioAtivo" />
+                <ScalarProperty Name="SenhaUsuario" ColumnName="SenhaUsuario" />
+                <ScalarProperty Name="EmailUsuario" ColumnName="EmailUsuario" />
+                <ScalarProperty Name="NomeLogin" ColumnName="NomeLogin" />
+                <ScalarProperty Name="NomeUsuario" ColumnName="NomeUsuario" />
+                <ScalarProperty Name="IDUsuario" ColumnName="IDUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EZAsk
 {
-    public partial class frmPrincipal : Form
+    public partial class FrmPrincipal : Form
     {
-        public frmPrincipal()
+        public FrmPrincipal()
         {
             InitializeComponent();
         }
@@ -40,6 +40,8 @@ namespace EZAsk
             FrmForum frmForum = new FrmForum();
             frmForum.MdiParent = this;
             frmForum.Show();
+            //frmForum.WindowState = FormWindowState.Maximized;
+            
         }
 
         private void menuSobre_Click(object sender, EventArgs e)

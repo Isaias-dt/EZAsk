@@ -10,20 +10,18 @@ using System.Windows.Forms;
 
 namespace EZAsk
 {
-    public partial class FrmSobre : Form
+    public partial class FrmAmbienteUsuario : Form
     {
-        public FrmSobre()
+        public FrmAmbienteUsuario()
         {
             InitializeComponent();
         }
 
-        private void FrmSobre_FormClosed(object sender, FormClosedEventArgs e)
+        private void FrmAmbienteUsuario_Load(object sender, EventArgs e)
         {
-            ((FrmPrincipal)this.MdiParent).menuSobre.Enabled = true;
-        }
+            ((FrmPrincipal)this.MdiParent).menuFrmPrincipal.Visible = false;
+            this.WindowState = FormWindowState.Maximized;
 
-        private void FrmSobre_Load(object sender, EventArgs e)
-        {
 
         }
     }
