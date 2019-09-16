@@ -41,9 +41,14 @@ namespace EZAsk
             txtSenhaUsuario.Text = "";
         }
         
-        // verifica se os campos estão vazio se estiver retorna false se não retorno true.
         public bool validaControle() 
-        { 
+        {   
+            // guarda o valor do usuario e o email se não existe guarda null.
+
+            var email = _Control.getEmail(txtEmailUsuario.Text);
+            var nick = _Control.getNick(txtNomeLogin.Text);
+
+            // verifica se os campos estão vazio se estiver retorna false.
             if (txtNomeUsuario.Text.Trim() == "")
             {
                 MessageBox.Show("Por favor preencha o Nome!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -67,21 +72,45 @@ namespace EZAsk
                 MessageBox.Show("Por favor digite uma senha!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-
+       
             else
             {
-                return true;
+                // Validação de Email e nick, se existe no banco não pode cadastrar.
+
+                if (nick != null && email != null)
+                {
+                    MessageBox.Show("Email e nick ja existe");
+                    txtNomeLogin.Focus();
+                    return false;
+                }
+                else if (nick != null)
+                {
+                    MessageBox.Show("Esse nick já existe!.");
+                    txtNomeLogin.Focus();
+                    return false;
+                }
+                else if (email != null)
+                {
+                    MessageBox.Show("Esse Email ja existe.");
+                    txtEmailUsuario.Focus();
+                    return false;
+                }
+                else
+                {
+                    MessageBox.Show("Cadastro efetuado com sucesso!");
+                    return true;
+                }
             }
         }
 
         private void btnCadastraUsuario_Click(object sender, EventArgs e)
         {
-             try
+            try
             {
                 if (validaControle())
                 {
                     Usuario oUsuario = new Usuario();
-                   
+
                     oUsuario.NomeUsuario = txtNomeUsuario.Text;
                     oUsuario.NomeLogin = txtNomeLogin.Text;
                     oUsuario.EmailUsuario = txtEmailUsuario.Text;
@@ -89,7 +118,6 @@ namespace EZAsk
                     _Control.Incluir(oUsuario);
                     LimpaControles();
 
-                    MessageBox.Show("Cadastro efetuado com sucesso!");
                 }
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException ex)
@@ -104,16 +132,19 @@ namespace EZAsk
 
         private void txtEmailUsuario_Leave(object sender, EventArgs e)
         {   // Verificando Email se estar no formato correto.
-            if (MyGlobal.ValidarEmail(txtEmailUsuario.Text) == false)
+            while (true)
             {
-                infLabelEmail.Text = "Digite um Email válido.";
-                //MessageBox.Show("Email com formato incorreto!");
-                //txtEmailUsuario.Focus();
+                if (MyGlobal.ValidarEmail(txtEmailUsuario.Text) == false)
+                {
+                    infLabelEmail.Text = "Digite um Email válido.";
+                    break;
+                }
+                else
+                {
+                    infLabelEmail.Visible = false;
+                }
             }
-            else
-            {
-                infLabelEmail.Visible = false;
-            }
+            
         }
     }
 }

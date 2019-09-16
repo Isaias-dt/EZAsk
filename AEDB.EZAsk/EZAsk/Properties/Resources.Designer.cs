@@ -63,6 +63,16 @@ namespace EZAsk.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap imgFundo {
+            get {
+                object obj = ResourceManager.GetObject("imgFundo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imgLoginPadrao {
             get {
                 object obj = ResourceManager.GetObject("imgLoginPadrao", resourceCulture);

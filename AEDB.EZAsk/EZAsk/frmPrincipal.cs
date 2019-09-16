@@ -51,5 +51,10 @@ namespace EZAsk
             frmSobre.MdiParent = this;
             frmSobre.Show();
         }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -77,17 +77,20 @@
             this.menuSobre.Text = "Sobre";
             this.menuSobre.Click += new System.EventHandler(this.menuSobre_Click);
             // 
-            // frmPrincipal
+            // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::EZAsk.Properties.Resources.imgFundo;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuFrmPrincipal);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuFrmPrincipal;
-            this.Name = "frmPrincipal";
+            this.Name = "FrmPrincipal";
             this.Text = "EZAsk";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.menuFrmPrincipal.ResumeLayout(false);
             this.menuFrmPrincipal.PerformLayout();
             this.ResumeLayout(false);

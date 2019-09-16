@@ -54,7 +54,7 @@
             this.label2.Location = new System.Drawing.Point(66, 274);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Password:";
             // 
             // imgLoginPadrao
@@ -73,7 +73,7 @@
             this.btnEntrar.Location = new System.Drawing.Point(149, 341);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(118, 32);
-            this.btnEntrar.TabIndex = 5;
+            this.btnEntrar.TabIndex = 3;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = true;
             this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
@@ -83,7 +83,7 @@
             this.btnCadastreSe.Location = new System.Drawing.Point(149, 389);
             this.btnCadastreSe.Name = "btnCadastreSe";
             this.btnCadastreSe.Size = new System.Drawing.Size(118, 32);
-            this.btnCadastreSe.TabIndex = 6;
+            this.btnCadastreSe.TabIndex = 4;
             this.btnCadastreSe.Text = "Cadastre - se";
             this.btnCadastreSe.UseVisualStyleBackColor = true;
             this.btnCadastreSe.Click += new System.EventHandler(this.btnCadastreSe_Click);
@@ -95,25 +95,27 @@
             this.trocarSenha.Location = new System.Drawing.Point(66, 313);
             this.trocarSenha.Name = "trocarSenha";
             this.trocarSenha.Size = new System.Drawing.Size(102, 13);
-            this.trocarSenha.TabIndex = 4;
+            this.trocarSenha.TabIndex = 0;
             this.trocarSenha.Text = "Esqueceu a senha?";
             this.trocarSenha.Visible = false;
             // 
             // txtAltUsuario
             // 
             this.txtAltUsuario.Location = new System.Drawing.Point(69, 237);
+            this.txtAltUsuario.MaxLength = 50;
             this.txtAltUsuario.Name = "txtAltUsuario";
             this.txtAltUsuario.Size = new System.Drawing.Size(270, 20);
-            this.txtAltUsuario.TabIndex = 7;
+            this.txtAltUsuario.TabIndex = 1;
             this.txtAltUsuario.Leave += new System.EventHandler(this.txtAltUsuario_Leave);
             // 
             // txtAltSenha
             // 
             this.txtAltSenha.Location = new System.Drawing.Point(69, 290);
+            this.txtAltSenha.MaxLength = 100;
             this.txtAltSenha.Name = "txtAltSenha";
             this.txtAltSenha.PasswordChar = '●';
             this.txtAltSenha.Size = new System.Drawing.Size(270, 20);
-            this.txtAltSenha.TabIndex = 7;
+            this.txtAltSenha.TabIndex = 2;
             // 
             // FrmLogin
             // 

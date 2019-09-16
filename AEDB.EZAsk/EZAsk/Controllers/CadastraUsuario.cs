@@ -41,6 +41,16 @@ namespace EZAsk.Controllers
         {
             return _RepositoryUsuario.SelecionarTodos();
         }
+        // retorna usuario ou null
+        public Usuario getEmail(string email)
+        {
+            return _RepositoryUsuario.ProucuraEmail(email);
+        }
+        // retorna email ou null
+        public Usuario getNick(string nick)
+        {
+            return _RepositoryUsuario.ProucuraNick(nick);
+        }
 
         public void Dispose()
         {

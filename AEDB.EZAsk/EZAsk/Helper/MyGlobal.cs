@@ -52,5 +52,18 @@ namespace EZAsk.Helper
                 return false;
             }
         }
+        //Valida Nome.
+        public static bool ValidarNome(string strNome)
+        {
+            string strModelo = "";
+            if (System.Text.RegularExpressions.Regex.IsMatch(strNome, strModelo))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

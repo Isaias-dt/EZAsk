@@ -8,13 +8,13 @@ using EZAsk.Repository;
 
 namespace EZAsk.Controllers
 {
-    class AltenticaUsuario :IDisposable
+    class Login :IDisposable
     {
         RepositoryUsuario _RepositoryUsuario;
 
-        public bool AchaUsuario(string login)
+        public Usuario AutenticaUsuario(string nick, string senha)
         {
-            return _RepositoryUsuario.AchaUsuario(login);
+            return _RepositoryUsuario.ValidaUsuario(nick, senha);
         }
 
         public void Dispose()

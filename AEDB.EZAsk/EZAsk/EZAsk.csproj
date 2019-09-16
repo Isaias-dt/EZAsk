@@ -61,7 +61,7 @@
     <Compile Include="Cidade.cs">
       <DependentUpon>Dataezask.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\AltenticaUsuario.cs" />
+    <Compile Include="Controllers\Login.cs" />
     <Compile Include="Controllers\CadastraUsuario.cs" />
     <Compile Include="Dataezask.Context.cs">
       <AutoGen>True</AutoGen>
@@ -195,6 +195,7 @@
       <DependentUpon>Dataezask.edmx</DependentUpon>
       <LastGenOutput>Dataezask.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\imgFundo.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
