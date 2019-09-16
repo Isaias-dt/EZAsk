@@ -39,9 +39,7 @@ namespace EZAsk
             menuForum.Enabled = false;
             FrmForum frmForum = new FrmForum();
             frmForum.MdiParent = this;
-            frmForum.Show();
-            //frmForum.WindowState = FormWindowState.Maximized;
-            
+            frmForum.Show();            
         }
 
         private void menuSobre_Click(object sender, EventArgs e)

@@ -17,6 +17,7 @@ namespace EZAsk
     {
 
         private CadastraUsuario _Control = new CadastraUsuario();
+        FrmPrincipal frmPrincipal = new FrmPrincipal();
 
         public FrmCadastraUsuario()
         {
@@ -132,19 +133,21 @@ namespace EZAsk
 
         private void txtEmailUsuario_Leave(object sender, EventArgs e)
         {   // Verificando Email se estar no formato correto.
-            while (true)
+           
+            if (MyGlobal.ValidarEmail(txtEmailUsuario.Text) == false)
             {
-                if (MyGlobal.ValidarEmail(txtEmailUsuario.Text) == false)
-                {
-                    infLabelEmail.Text = "Digite um Email válido.";
-                    break;
-                }
-                else
-                {
-                    infLabelEmail.Visible = false;
-                }
+                infLabelEmail.Text = "Digite um Email válido.";
+                infLabelEmail.Visible = true;                    
             }
-            
+            else
+            {
+                infLabelEmail.Visible = false;
+            }
+        }
+
+        private void FrmCadastraUsuario_Activated(object sender, EventArgs e)
+        {   // Sintaxes incorreta consertar.
+            ((FrmPrincipal)this.MdiParent).menuCadastra.Enabled = false;
         }
     }
 }

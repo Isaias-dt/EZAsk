@@ -46,7 +46,7 @@ namespace EZAsk.Repository
 
         public Usuario ValidaUsuario(string nick, string senha)
         {
-            senha = Helper.Criptografia.gerarHashMd5(senha);
+            senha = Criptografia.gerarHashMd5(senha);
             //FirstOrDefault() : se não achar registro no campo da tabela retorna null.
             return (from p in oDb.Usuario where (p.EmailUsuario == nick || p.NomeLogin == nick) && p.SenhaUsuario == senha select p).FirstOrDefault();
         }

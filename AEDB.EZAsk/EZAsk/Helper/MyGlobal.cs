@@ -9,6 +9,7 @@ namespace EZAsk.Helper
     public class MyGlobal
     {
         FrmPrincipal frmPrincipal;
+        private static FrmPrincipal instanceMdiParentFrmPrincipal; 
 
         public static EZAskEntities getDataContext ()
         {
@@ -64,6 +65,16 @@ namespace EZAsk.Helper
             {
                 return false;
             }
+        }
+
+        // Função singleton do frmPrincipa.
+        public static FrmPrincipal InstanceFrmPrincipal()
+        {
+            if (instanceMdiParentFrmPrincipal == null)
+            {
+                return instanceMdiParentFrmPrincipal = new FrmPrincipal();
+            }
+            return instanceMdiParentFrmPrincipal;
         }
     }
 }

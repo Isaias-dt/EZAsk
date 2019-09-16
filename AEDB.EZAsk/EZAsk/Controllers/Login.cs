@@ -10,7 +10,7 @@ namespace EZAsk.Controllers
 {
     class Login :IDisposable
     {
-        RepositoryUsuario _RepositoryUsuario;
+        RepositoryUsuario _RepositoryUsuario = new RepositoryUsuario();
 
         public Usuario AutenticaUsuario(string nick, string senha)
         {

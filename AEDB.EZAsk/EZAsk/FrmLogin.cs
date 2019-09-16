@@ -31,8 +31,15 @@ namespace EZAsk
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-
+            txtAltUsuario.Focus();
            
+        }
+
+        //limpar os campos.
+        public void LimpaControles()
+        {
+            txtAltUsuario.Text = "";
+            txtAltSenha.Text = "";
         }
 
         // verifica se os campos estão vazio se estiver retorna false se não retorno true.
@@ -56,27 +63,26 @@ namespace EZAsk
             }
         }
 
-        public bool validaUsuario(string usuario)
-        {
-
-            return false;
-        }
-
         private void imgLoginPadrao_Click(object sender, EventArgs e)
         {
             
         }
 
+        // Botão Cadastrar da tela login.
         private void btnCadastreSe_Click(object sender, EventArgs e)
         {
             FrmCadastraUsuario frmCadUsuario = new FrmCadastraUsuario();
             FrmPrincipal frmPrincipal = new FrmPrincipal();
 
-            frmCadUsuario.Show();
-            ((FrmPrincipal)this.MdiParent).menuCadastra.Enabled = false;
+            frmCadUsuario.MdiParent = MyGlobal.InstanceFrmPrincipal();
             this.Close();
+            
+            frmCadUsuario.Show();
+            frmPrincipal.menuCadastra.Enabled = false;
+
         }
 
+        // Botão Entrar no ambiente usuário.
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             try
@@ -88,22 +94,22 @@ namespace EZAsk
 
                     if (bdUsuario == null)
                     {
-                        // Aqui onde usuario não foi autenticado.
-                        
+                        // Quando não for autenticado.
+                        MessageBox.Show("Senha ou Email inválidos!", "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        LimpaControles();
+                        txtAltUsuario.Focus();
                     }
                     else
                     {
                         // Aqui quando Usuario for autenticado.
                         FrmAmbienteUsuario frmAmbienteUsuario = new FrmAmbienteUsuario();
+                        frmAmbienteUsuario.MdiParent = MyGlobal.InstanceFrmPrincipal();
                         frmAmbienteUsuario.Show();
+                        this.Close();
                     }                   
                 }
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException ex)
-            {
-                MessageBox.Show(MyGlobal.MsgErro(ex), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
             {
                 MessageBox.Show(MyGlobal.MsgErro(ex), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

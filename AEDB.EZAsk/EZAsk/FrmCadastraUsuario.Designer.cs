@@ -161,6 +161,7 @@
             this.Name = "FrmCadastraUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Usuário";
+            this.Activated += new System.EventHandler(this.FrmCadastraUsuario_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmCadastraUsuario_FormClosed);
             this.Load += new System.EventHandler(this.FrmCadastraUsuario_Load);
             this.ResumeLayout(false);
