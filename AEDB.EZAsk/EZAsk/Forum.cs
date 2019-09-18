@@ -16,11 +16,13 @@ namespace EZAsk
     {
         public int IDPost { get; set; }
         public string TituloPost { get; set; }
-        public Nullable<int> Usuario { get; set; }
+        public string UsuarioPost { get; set; }
         public string Post { get; set; }
         public Nullable<int> RespostaPost { get; set; }
+        public Nullable<int> Materia { get; set; }
     
         public virtual Resposta Resposta { get; set; }
-        public virtual Usuario Usuario1 { get; set; }
+        public virtual Usuario Usuario { get; set; }
+        public virtual Materia Materia1 { get; set; }
     }
 }

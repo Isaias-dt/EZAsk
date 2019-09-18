@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadastraUsuario));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -90,7 +91,7 @@
             // txtNomeUsuario
             // 
             this.txtNomeUsuario.Location = new System.Drawing.Point(70, 84);
-            this.txtNomeUsuario.MaxLength = 50;
+            this.txtNomeUsuario.MaxLength = 100;
             this.txtNomeUsuario.Name = "txtNomeUsuario";
             this.txtNomeUsuario.Size = new System.Drawing.Size(356, 20);
             this.txtNomeUsuario.TabIndex = 0;
@@ -106,7 +107,7 @@
             // txtEmailUsuario
             // 
             this.txtEmailUsuario.Location = new System.Drawing.Point(70, 189);
-            this.txtEmailUsuario.MaxLength = 50;
+            this.txtEmailUsuario.MaxLength = 100;
             this.txtEmailUsuario.Name = "txtEmailUsuario";
             this.txtEmailUsuario.Size = new System.Drawing.Size(356, 20);
             this.txtEmailUsuario.TabIndex = 2;
@@ -157,6 +158,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmCadastraUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

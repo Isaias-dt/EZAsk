@@ -38,10 +38,10 @@ namespace EZAsk.Repository
             oDb.SaveChanges();
         }
 
-        public Usuario Selecionar(int Codigo)
+        public Usuario Selecionar(string str)
         {
             //FirstOrDefault() : se não achar registro no campo da tabela retorna null.
-            return (from p in oDb.Usuario where p.IDUsuario == Codigo select p).FirstOrDefault();
+            return (from p in oDb.Usuario where p.EmailUsuario == str select p).FirstOrDefault();
         }
 
         public Usuario ValidaUsuario(string nick, string senha)
@@ -53,7 +53,7 @@ namespace EZAsk.Repository
 
         public List<Usuario> SelecionarTodos()
         {
-            return (from p in oDb.Usuario orderby p.IDUsuario select p).ToList();
+            return (from p in oDb.Usuario orderby p.EmailUsuario select p).ToList();
         }
 
         // Proucura usuario no banco se achou vai retornar Usuario se não null.

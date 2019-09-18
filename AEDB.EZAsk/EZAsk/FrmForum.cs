@@ -25,8 +25,15 @@ namespace EZAsk
         }
 
         private void FrmForum_Load(object sender, EventArgs e)
-        {   
+        {
+            // TODO: esta linha de código carrega dados na tabela 'eZAskDataSet.Forum'. Você pode movê-la ou removê-la conforme necessário.
+            //this.forumTableAdapter.Fill(this.eZAskDataSet.Forum);
             this.WindowState = FormWindowState.Maximized; // maximinizando a form Forum dentro do conteiner principal.
+        }
+
+        private void grdForum_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            new FrmResponder().ShowDialog();
         }
     }
 }

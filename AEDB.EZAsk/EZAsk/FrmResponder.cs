@@ -10,21 +10,16 @@ using System.Windows.Forms;
 
 namespace EZAsk
 {
-    public partial class FrmSobre : Form
+    public partial class FrmResponder : Form
     {
-        public FrmSobre()
+        public FrmResponder()
         {
             InitializeComponent();
         }
 
-        private void FrmSobre_FormClosed(object sender, FormClosedEventArgs e)
+        private void FrmResponder_Load(object sender, EventArgs e)
         {
-            ((FrmPrincipal)this.MdiParent).menuSobre.Enabled = true;
-        }
-
-        private void FrmSobre_Load(object sender, EventArgs e)
-        {
-
+            this.MdiParent = new FrmForum();    
         }
     }
 }

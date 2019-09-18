@@ -47,13 +47,13 @@ namespace EZAsk
         {
             if (txtAltUsuario.Text.Trim() == "")
             {
-                MessageBox.Show("Digite o email ou nome de usuario para se conectar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Digite o email ou nome de usuario para se conectar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             else if (txtAltSenha.Text.Trim() == "")
             {
-                MessageBox.Show("Digite o senha para se conectar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Digite o senha para se conectar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -95,7 +95,7 @@ namespace EZAsk
                     if (bdUsuario == null)
                     {
                         // Quando não for autenticado.
-                        MessageBox.Show("Senha ou Email inválidos!", "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Senha ou Email inválidos!", "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LimpaControles();
                         txtAltUsuario.Focus();
                     }

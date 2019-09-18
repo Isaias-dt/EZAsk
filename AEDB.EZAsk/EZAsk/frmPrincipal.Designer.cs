@@ -87,6 +87,7 @@
             this.Controls.Add(this.menuFrmPrincipal);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuFrmPrincipal;
+            this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "FrmPrincipal";
             this.Text = "EZAsk";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -32,9 +32,9 @@ namespace EZAsk.Controllers
             _RepositoryUsuario.Excluir(oUsuario);
         }
 
-        public Usuario Selecionar(int Codigo)
+        public Usuario Selecionar(string str)
         {
-            return _RepositoryUsuario.Selecionar(Codigo);
+            return _RepositoryUsuario.Selecionar(str);
         }
 
         public List<Usuario> SelecionarTodos()

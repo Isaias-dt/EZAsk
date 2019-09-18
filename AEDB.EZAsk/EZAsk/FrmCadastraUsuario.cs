@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using EZAsk.Helper;
 using EZAsk.Repository;
 using EZAsk.Controllers;
+using EZAsk.DialogBox;
 
 namespace EZAsk
 {
@@ -52,53 +53,60 @@ namespace EZAsk
             // verifica se os campos estão vazio se estiver retorna false.
             if (txtNomeUsuario.Text.Trim() == "")
             {
-                MessageBox.Show("Por favor preencha o Nome!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Por favor preencha o Nome!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             else if (txtNomeLogin.Text.Trim() == "")
             {
-                MessageBox.Show("Por favor preencha o seu nome Usuario!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Por favor preencha o seu nome Usuario!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             else if (txtEmailUsuario.Text.Trim() == "")
             {
-                MessageBox.Show("Por favor preencha o Email!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Por favor preencha o Email!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
             else if (txtSenhaUsuario.Text.Trim() == "")
             {
-                MessageBox.Show("Por favor digite uma senha!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Por favor digite uma senha!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
-       
+            else if (MyGlobal.ValidarEmail(txtEmailUsuario.Text) == false)
+            { 
+                MessageBox.Show("Email inválido", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+                  
             else
             {
                 // Validação de Email e nick, se existe no banco não pode cadastrar.
 
                 if (nick != null && email != null)
                 {
-                    MessageBox.Show("Email e nick ja existe");
+                    MessageBox.Show("Email e nome de usuário inválidos", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtNomeLogin.Focus();
                     return false;
                 }
                 else if (nick != null)
                 {
-                    MessageBox.Show("Esse nick já existe!.");
+                    MessageBox.Show("Nome de usuário inválido", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtNomeLogin.Focus();
                     return false;
                 }
                 else if (email != null)
                 {
-                    MessageBox.Show("Esse Email ja existe.");
+                    MessageBox.Show("Email inválido", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtEmailUsuario.Focus();
                     return false;
                 }
                 else
                 {
-                    MessageBox.Show("Cadastro efetuado com sucesso!");
+                    DialogBoxConfirmado dialogBoxCConfirmado = new DialogBoxConfirmado();
+                    dialogBoxCConfirmado.ShowDialog();
+                    txtNomeUsuario.Focus();
                     return true;
                 }
             }
@@ -132,9 +140,9 @@ namespace EZAsk
         }
 
         private void txtEmailUsuario_Leave(object sender, EventArgs e)
-        {   // Verificando Email se estar no formato correto.
+        {   // Verificando o Email se estár no formato correto.
            
-            if (MyGlobal.ValidarEmail(txtEmailUsuario.Text) == false)
+            if (MyGlobal.ValidarEmail(txtEmailUsuario.Text) == false && txtEmailUsuario.Text != "")
             {
                 infLabelEmail.Text = "Digite um Email válido.";
                 infLabelEmail.Visible = true;                    

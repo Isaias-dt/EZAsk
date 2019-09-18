@@ -45,14 +45,16 @@ namespace EZAsk
         private void menuSobre_Click(object sender, EventArgs e)
         {
             menuSobre.Enabled = false;
-            FrmSobre frmSobre = new FrmSobre();
-            frmSobre.MdiParent = this;
-            frmSobre.Show();
+            FrmSobreSW frmSobreSW = new FrmSobreSW();
+            frmSobreSW.MdiParent = this;
+            frmSobreSW.Show();
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
             
         }
+
+        
     }
 }

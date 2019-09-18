@@ -12,21 +12,18 @@ namespace EZAsk
     using System;
     using System.Collections.Generic;
     
-    public partial class Resposta
+    public partial class Materia
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Resposta()
+        public Materia()
         {
             this.Forum = new HashSet<Forum>();
         }
     
-        public int IDResposta { get; set; }
-        public Nullable<int> Post { get; set; }
-        public string PostResposta { get; set; }
-        public string UsuarioResposta { get; set; }
+        public int IDMateria { get; set; }
+        public string NomeMateria { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Forum> Forum { get; set; }
-        public virtual Usuario Usuario { get; set; }
     }
 }
