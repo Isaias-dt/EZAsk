@@ -17,7 +17,7 @@ namespace EZAsk
     public partial class FrmLogin : Form
     {
         Login _Control = new Login();
-        
+        int qtsTentativaLogin = 0;
 
         public FrmLogin()
         {
@@ -98,6 +98,12 @@ namespace EZAsk
                         MessageBox.Show("Senha ou Email inválidos!", "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LimpaControles();
                         txtAltUsuario.Focus();
+                        qtsTentativaLogin++;
+                        if(qtsTentativaLogin == 3)
+                        {
+                            lblTrocarSenha.Visible = true;
+                        }
+                        
                     }
                     else
                     {
@@ -115,9 +121,14 @@ namespace EZAsk
             }
         }
 
-        private void txtAltUsuario_Leave(object sender, EventArgs e)
+        private void lblTrocarSenha_MouseEnter(object sender, EventArgs e)
         {
-            
+            lblTrocarSenha.BorderStyle = BorderStyle.FixedSingle;
+        }
+
+        private void lblTrocarSenha_MouseLeave(object sender, EventArgs e)
+        {
+            lblTrocarSenha.BorderStyle = BorderStyle.None;
         }
     }
 }

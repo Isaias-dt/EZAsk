@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.menuFrmPrincipal = new System.Windows.Forms.MenuStrip();
             this.menuLogin = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadastra = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,6 +86,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuFrmPrincipal);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuFrmPrincipal;
             this.MinimumSize = new System.Drawing.Size(816, 489);

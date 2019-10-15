@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>IconeEZAsk.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -125,6 +128,12 @@
     <Compile Include="FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRecuperarConta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRecuperarConta.Designer.cs">
+      <DependentUpon>FrmRecuperarConta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmResponder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRecuperarConta.resx">
+      <DependentUpon>FrmRecuperarConta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmResponder.resx">
       <DependentUpon>FrmResponder.cs</DependentUpon>
@@ -227,6 +239,7 @@
       <DependentUpon>Dataezask.edmx</DependentUpon>
       <LastGenOutput>Dataezask.cs</LastGenOutput>
     </Content>
+    <Content Include="IconeEZAsk.ico" />
     <None Include="Resources\ok_accept.ico" />
     <None Include="Resources\imgFundo.jpg" />
   </ItemGroup>

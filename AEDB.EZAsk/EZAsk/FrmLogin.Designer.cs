@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.imgLoginPadrao = new System.Windows.Forms.PictureBox();
             this.btnEntrar = new System.Windows.Forms.Button();
             this.btnCadastreSe = new System.Windows.Forms.Button();
-            this.trocarSenha = new System.Windows.Forms.Label();
+            this.lblTrocarSenha = new System.Windows.Forms.Label();
             this.txtAltUsuario = new System.Windows.Forms.TextBox();
             this.txtAltSenha = new System.Windows.Forms.TextBox();
+            this.imgLoginPadrao = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoginPadrao)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +58,59 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Password:";
             // 
+            // btnEntrar
+            // 
+            this.btnEntrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEntrar.Location = new System.Drawing.Point(149, 341);
+            this.btnEntrar.Name = "btnEntrar";
+            this.btnEntrar.Size = new System.Drawing.Size(118, 32);
+            this.btnEntrar.TabIndex = 3;
+            this.btnEntrar.Text = "Entrar";
+            this.btnEntrar.UseVisualStyleBackColor = true;
+            this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
+            // 
+            // btnCadastreSe
+            // 
+            this.btnCadastreSe.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCadastreSe.Location = new System.Drawing.Point(149, 389);
+            this.btnCadastreSe.Name = "btnCadastreSe";
+            this.btnCadastreSe.Size = new System.Drawing.Size(118, 32);
+            this.btnCadastreSe.TabIndex = 4;
+            this.btnCadastreSe.Text = "Cadastre - se";
+            this.btnCadastreSe.UseVisualStyleBackColor = true;
+            this.btnCadastreSe.Click += new System.EventHandler(this.btnCadastreSe_Click);
+            // 
+            // lblTrocarSenha
+            // 
+            this.lblTrocarSenha.AutoSize = true;
+            this.lblTrocarSenha.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblTrocarSenha.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblTrocarSenha.Location = new System.Drawing.Point(66, 313);
+            this.lblTrocarSenha.Name = "lblTrocarSenha";
+            this.lblTrocarSenha.Size = new System.Drawing.Size(147, 13);
+            this.lblTrocarSenha.TabIndex = 0;
+            this.lblTrocarSenha.Text = "Esqueceu a Senha ou Email?";
+            this.lblTrocarSenha.Visible = false;
+            this.lblTrocarSenha.MouseEnter += new System.EventHandler(this.lblTrocarSenha_MouseEnter);
+            this.lblTrocarSenha.MouseLeave += new System.EventHandler(this.lblTrocarSenha_MouseLeave);
+            // 
+            // txtAltUsuario
+            // 
+            this.txtAltUsuario.Location = new System.Drawing.Point(69, 237);
+            this.txtAltUsuario.MaxLength = 50;
+            this.txtAltUsuario.Name = "txtAltUsuario";
+            this.txtAltUsuario.Size = new System.Drawing.Size(270, 20);
+            this.txtAltUsuario.TabIndex = 1;
+            // 
+            // txtAltSenha
+            // 
+            this.txtAltSenha.Location = new System.Drawing.Point(69, 290);
+            this.txtAltSenha.MaxLength = 100;
+            this.txtAltSenha.Name = "txtAltSenha";
+            this.txtAltSenha.PasswordChar = '●';
+            this.txtAltSenha.Size = new System.Drawing.Size(270, 20);
+            this.txtAltSenha.TabIndex = 2;
+            // 
             // imgLoginPadrao
             // 
             this.imgLoginPadrao.Image = global::EZAsk.Properties.Resources.imgLoginPadrao;
@@ -69,55 +122,6 @@
             this.imgLoginPadrao.TabStop = false;
             this.imgLoginPadrao.Click += new System.EventHandler(this.imgLoginPadrao_Click);
             // 
-            // btnEntrar
-            // 
-            this.btnEntrar.Location = new System.Drawing.Point(149, 341);
-            this.btnEntrar.Name = "btnEntrar";
-            this.btnEntrar.Size = new System.Drawing.Size(118, 32);
-            this.btnEntrar.TabIndex = 3;
-            this.btnEntrar.Text = "Entrar";
-            this.btnEntrar.UseVisualStyleBackColor = true;
-            this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
-            // 
-            // btnCadastreSe
-            // 
-            this.btnCadastreSe.Location = new System.Drawing.Point(149, 389);
-            this.btnCadastreSe.Name = "btnCadastreSe";
-            this.btnCadastreSe.Size = new System.Drawing.Size(118, 32);
-            this.btnCadastreSe.TabIndex = 4;
-            this.btnCadastreSe.Text = "Cadastre - se";
-            this.btnCadastreSe.UseVisualStyleBackColor = true;
-            this.btnCadastreSe.Click += new System.EventHandler(this.btnCadastreSe_Click);
-            // 
-            // trocarSenha
-            // 
-            this.trocarSenha.AutoSize = true;
-            this.trocarSenha.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.trocarSenha.Location = new System.Drawing.Point(66, 313);
-            this.trocarSenha.Name = "trocarSenha";
-            this.trocarSenha.Size = new System.Drawing.Size(102, 13);
-            this.trocarSenha.TabIndex = 0;
-            this.trocarSenha.Text = "Esqueceu a senha?";
-            this.trocarSenha.Visible = false;
-            // 
-            // txtAltUsuario
-            // 
-            this.txtAltUsuario.Location = new System.Drawing.Point(69, 237);
-            this.txtAltUsuario.MaxLength = 50;
-            this.txtAltUsuario.Name = "txtAltUsuario";
-            this.txtAltUsuario.Size = new System.Drawing.Size(270, 20);
-            this.txtAltUsuario.TabIndex = 1;
-            this.txtAltUsuario.Leave += new System.EventHandler(this.txtAltUsuario_Leave);
-            // 
-            // txtAltSenha
-            // 
-            this.txtAltSenha.Location = new System.Drawing.Point(69, 290);
-            this.txtAltSenha.MaxLength = 100;
-            this.txtAltSenha.Name = "txtAltSenha";
-            this.txtAltSenha.PasswordChar = '●';
-            this.txtAltSenha.Size = new System.Drawing.Size(270, 20);
-            this.txtAltSenha.TabIndex = 2;
-            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -125,7 +129,7 @@
             this.ClientSize = new System.Drawing.Size(412, 501);
             this.Controls.Add(this.txtAltSenha);
             this.Controls.Add(this.txtAltUsuario);
-            this.Controls.Add(this.trocarSenha);
+            this.Controls.Add(this.lblTrocarSenha);
             this.Controls.Add(this.btnCadastreSe);
             this.Controls.Add(this.btnEntrar);
             this.Controls.Add(this.imgLoginPadrao);
@@ -152,7 +156,7 @@
         private System.Windows.Forms.PictureBox imgLoginPadrao;
         private System.Windows.Forms.Button btnEntrar;
         private System.Windows.Forms.Button btnCadastreSe;
-        private System.Windows.Forms.Label trocarSenha;
+        private System.Windows.Forms.Label lblTrocarSenha;
         private System.Windows.Forms.TextBox txtAltUsuario;
         private System.Windows.Forms.TextBox txtAltSenha;
     }
