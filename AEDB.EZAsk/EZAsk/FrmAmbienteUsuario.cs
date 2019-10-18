@@ -14,6 +14,8 @@ namespace EZAsk
 {
     public partial class FrmAmbienteUsuario : Form
     {
+        Form _objFrm;
+
         FrmPrincipal frmPrincipal = new FrmPrincipal();
         public FrmAmbienteUsuario()
         {
@@ -22,16 +24,11 @@ namespace EZAsk
 
         private void FrmAmbienteUsuario_Load(object sender, EventArgs e)
         {
-            
             // Sintaxe errada.
             //((FrmPrincipal)this.MdiParent).menuFrmPrincipal.Visible = false;
-            this.WindowState = FormWindowState.Maximized;
-            frmPrincipal.menuCadastra.Visible = false;
-        }
+            //this.WindowState = FormWindowState.Maximized;
+            //frmPrincipal.menuCadastra.Visible = false;
 
-        private void btnDeslogarUsuario_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void FrmAmbienteUsuario_Activated(object sender, EventArgs e)
@@ -41,14 +38,30 @@ namespace EZAsk
             
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void btnPerfilMenuUser_Click(object sender, EventArgs e)
         {
-
+            _objFrm?.Close();
+            _objFrm = new FrmPerfilUsuario
+            {
+                TopLevel = false,
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill  
+            };
+            pnlContentUser.Controls.Add(_objFrm);
+            _objFrm.Show();
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void btnForumMenuUser_Click(object sender, EventArgs e)
         {
-
+            _objFrm?.Close();
+            _objFrm = new FrmForum
+            {
+                TopLevel = false,
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill
+            };
+            pnlContentUser.Controls.Add(_objFrm);
+            _objFrm.Show();
         }
     }
 }

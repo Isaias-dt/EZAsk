@@ -18,6 +18,7 @@ namespace EZAsk
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(MyGlobal.InstanceFrmPrincipal());
+            //Application.Run(new FrmAmbienteUsuario());
         }
     }
 }

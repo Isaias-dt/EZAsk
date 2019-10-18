@@ -126,7 +126,7 @@
             this.Controls.Add(this.txtPesquisar);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.grdForum);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmForum";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forum EZAsk";

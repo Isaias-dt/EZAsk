@@ -10,15 +10,15 @@
         <EntityTypeShape EntityType="EZAskModel.TipoUsuario" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="EZAskModel.Forum" Width="1.5" PointX="7.5" PointY="4.75" />
         <EntityTypeShape EntityType="EZAskModel.Resposta" Width="1.5" PointX="5.25" PointY="6.875" />
+        <AssociationConnector Association="EZAskModel.FK_Forum_Resposta" />
+        <EntityTypeShape EntityType="EZAskModel.Materia" Width="1.5" PointX="5.375" PointY="0.875" />
+        <AssociationConnector Association="EZAskModel.FK_Forum_Materia" />
         <EntityTypeShape EntityType="EZAskModel.Usuario" Width="1.5" PointX="3" PointY="2.875" />
         <AssociationConnector Association="EZAskModel.FK_Usuario_Bairro" />
         <AssociationConnector Association="EZAskModel.FK_Usuario_Cidade" />
-        <AssociationConnector Association="EZAskModel.FK_Forum_Resposta" />
         <AssociationConnector Association="EZAskModel.FK_Forum_Usuario" />
         <AssociationConnector Association="EZAskModel.FK_Resposta_Usuario" />
         <AssociationConnector Association="EZAskModel.FK_Usuario_TipoUsuario" />
-        <EntityTypeShape EntityType="EZAskModel.Materia" Width="1.5" PointX="5.375" PointY="0.875" />
-        <AssociationConnector Association="EZAskModel.FK_Forum_Materia" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -30,7 +30,7 @@ namespace EZAsk
         public virtual DbSet<TipoUsuario> TipoUsuario { get; set; }
         public virtual DbSet<Forum> Forum { get; set; }
         public virtual DbSet<Resposta> Resposta { get; set; }
-        public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<Materia> Materia { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
     }
 }

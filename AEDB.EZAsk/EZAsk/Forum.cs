@@ -22,7 +22,7 @@ namespace EZAsk
         public Nullable<int> Materia { get; set; }
     
         public virtual Resposta Resposta { get; set; }
-        public virtual Usuario Usuario { get; set; }
         public virtual Materia Materia1 { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

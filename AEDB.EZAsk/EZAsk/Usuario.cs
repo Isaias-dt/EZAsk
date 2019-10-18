@@ -30,7 +30,7 @@ namespace EZAsk
         public Nullable<int> Cidade { get; set; }
         public Nullable<int> Bairro { get; set; }
         public Nullable<int> TipoUsuario { get; set; }
-        public string ImgUsuario { get; set; }
+        public byte[] ImgUsuario { get; set; }
     
         public virtual Bairro Bairro1 { get; set; }
         public virtual Cidade Cidade1 { get; set; }

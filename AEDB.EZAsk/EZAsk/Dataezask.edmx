@@ -67,7 +67,7 @@
           <Property Name="Cidade" Type="int" />
           <Property Name="Bairro" Type="int" />
           <Property Name="TipoUsuario" Type="int" />
-          <Property Name="ImgUsuario" Type="varchar(max)" />
+          <Property Name="ImgUsuario" Type="image" />
         </EntityType>
         <Association Name="FK_Forum_Materia">
           <End Role="Materia" Type="Self.Materia" Multiplicity="0..1" />
@@ -225,6 +225,15 @@
           <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" />
           <EntitySet Name="Forum" EntityType="EZAskModel.Forum" />
           <EntitySet Name="Resposta" EntityType="EZAskModel.Resposta" />
+          <AssociationSet Name="FK_Forum_Resposta" Association="EZAskModel.FK_Forum_Resposta">
+            <End Role="Resposta" EntitySet="Resposta" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <EntitySet Name="Materia" EntityType="EZAskModel.Materia" />
+          <AssociationSet Name="FK_Forum_Materia" Association="EZAskModel.FK_Forum_Materia">
+            <End Role="Materia" EntitySet="Materia" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
           <EntitySet Name="Usuario" EntityType="EZAskModel.Usuario" />
           <AssociationSet Name="FK_Usuario_Bairro" Association="EZAskModel.FK_Usuario_Bairro">
             <End Role="Bairro" EntitySet="Bairro" />
@@ -233,10 +242,6 @@
           <AssociationSet Name="FK_Usuario_Cidade" Association="EZAskModel.FK_Usuario_Cidade">
             <End Role="Cidade" EntitySet="Cidade" />
             <End Role="Usuario" EntitySet="Usuario" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Forum_Resposta" Association="EZAskModel.FK_Forum_Resposta">
-            <End Role="Resposta" EntitySet="Resposta" />
-            <End Role="Forum" EntitySet="Forum" />
           </AssociationSet>
           <AssociationSet Name="FK_Forum_Usuario" Association="EZAskModel.FK_Forum_Usuario">
             <End Role="Usuario" EntitySet="Usuario" />
@@ -250,11 +255,6 @@
             <End Role="TipoUsuario" EntitySet="TipoUsuario" />
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
-          <EntitySet Name="Materia" EntityType="EZAskModel.Materia" />
-          <AssociationSet Name="FK_Forum_Materia" Association="EZAskModel.FK_Forum_Materia">
-            <End Role="Materia" EntitySet="Materia" />
-            <End Role="Forum" EntitySet="Forum" />
-          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Forum">
           <Key>
@@ -266,9 +266,9 @@
           <Property Name="Post" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="RespostaPost" Type="Int32" />
           <NavigationProperty Name="Resposta" Relationship="EZAskModel.FK_Forum_Resposta" FromRole="Forum" ToRole="Resposta" />
-          <NavigationProperty Name="Usuario" Relationship="EZAskModel.FK_Forum_Usuario" FromRole="Forum" ToRole="Usuario" />
           <Property Name="Materia" Type="Int32" />
           <NavigationProperty Name="Materia1" Relationship="EZAskModel.FK_Forum_Materia" FromRole="Forum" ToRole="Materia" />
+          <NavigationProperty Name="Usuario" Relationship="EZAskModel.FK_Forum_Usuario" FromRole="Forum" ToRole="Usuario" />
         </EntityType>
         <EntityType Name="Resposta">
           <Key>
@@ -281,6 +281,38 @@
           <NavigationProperty Name="Forum" Relationship="EZAskModel.FK_Forum_Resposta" FromRole="Resposta" ToRole="Forum" />
           <NavigationProperty Name="Usuario" Relationship="EZAskModel.FK_Resposta_Usuario" FromRole="Resposta" ToRole="Usuario" />
         </EntityType>
+        <Association Name="FK_Forum_Resposta">
+          <End Type="EZAskModel.Resposta" Role="Resposta" Multiplicity="0..1" />
+          <End Type="EZAskModel.Forum" Role="Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resposta">
+              <PropertyRef Name="IDResposta" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="RespostaPost" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Materia">
+          <Key>
+            <PropertyRef Name="IDMateria" />
+          </Key>
+          <Property Name="IDMateria" Type="Int32" Nullable="false" />
+          <Property Name="NomeMateria" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Forum" Relationship="EZAskModel.FK_Forum_Materia" FromRole="Materia" ToRole="Forum" />
+        </EntityType>
+        <Association Name="FK_Forum_Materia">
+          <End Type="EZAskModel.Materia" Role="Materia" Multiplicity="0..1" />
+          <End Type="EZAskModel.Forum" Role="Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materia">
+              <PropertyRef Name="IDMateria" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="Materia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="Usuario">
           <Key>
             <PropertyRef Name="EmailUsuario" />
@@ -294,7 +326,7 @@
           <Property Name="Cidade" Type="Int32" />
           <Property Name="Bairro" Type="Int32" />
           <Property Name="TipoUsuario" Type="Int32" />
-          <Property Name="ImgUsuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ImgUsuario" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Bairro1" Relationship="EZAskModel.FK_Usuario_Bairro" FromRole="Usuario" ToRole="Bairro" />
           <NavigationProperty Name="Cidade1" Relationship="EZAskModel.FK_Usuario_Cidade" FromRole="Usuario" ToRole="Cidade" />
           <NavigationProperty Name="Forum" Relationship="EZAskModel.FK_Forum_Usuario" FromRole="Usuario" ToRole="Forum" />
@@ -322,18 +354,6 @@
             </Principal>
             <Dependent Role="Usuario">
               <PropertyRef Name="Cidade" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Forum_Resposta">
-          <End Type="EZAskModel.Resposta" Role="Resposta" Multiplicity="0..1" />
-          <End Type="EZAskModel.Forum" Role="Forum" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Resposta">
-              <PropertyRef Name="IDResposta" />
-            </Principal>
-            <Dependent Role="Forum">
-              <PropertyRef Name="RespostaPost" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -370,26 +390,6 @@
             </Principal>
             <Dependent Role="Usuario">
               <PropertyRef Name="TipoUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Materia">
-          <Key>
-            <PropertyRef Name="IDMateria" />
-          </Key>
-          <Property Name="IDMateria" Type="Int32" Nullable="false" />
-          <Property Name="NomeMateria" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Forum" Relationship="EZAskModel.FK_Forum_Materia" FromRole="Materia" ToRole="Forum" />
-        </EntityType>
-        <Association Name="FK_Forum_Materia">
-          <End Type="EZAskModel.Materia" Role="Materia" Multiplicity="0..1" />
-          <End Type="EZAskModel.Forum" Role="Forum" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Materia">
-              <PropertyRef Name="IDMateria" />
-            </Principal>
-            <Dependent Role="Forum">
-              <PropertyRef Name="Materia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -446,6 +446,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Materia">
+            <EntityTypeMapping TypeName="EZAskModel.Materia">
+              <MappingFragment StoreEntitySet="Materia">
+                <ScalarProperty Name="NomeMateria" ColumnName="NomeMateria" />
+                <ScalarProperty Name="IDMateria" ColumnName="IDMateria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="EZAskModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
@@ -459,14 +467,6 @@
                 <ScalarProperty Name="NomeUsuario" ColumnName="NomeUsuario" />
                 <ScalarProperty Name="NomeLogin" ColumnName="NomeLogin" />
                 <ScalarProperty Name="EmailUsuario" ColumnName="EmailUsuario" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Materia">
-            <EntityTypeMapping TypeName="EZAskModel.Materia">
-              <MappingFragment StoreEntitySet="Materia">
-                <ScalarProperty Name="NomeMateria" ColumnName="NomeMateria" />
-                <ScalarProperty Name="IDMateria" ColumnName="IDMateria" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

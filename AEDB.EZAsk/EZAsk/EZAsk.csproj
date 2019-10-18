@@ -122,6 +122,12 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPerfilUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPerfilUsuario.Designer.cs">
+      <DependentUpon>FrmPerfilUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,12 @@
     </Compile>
     <Compile Include="FrmResponder.Designer.cs">
       <DependentUpon>FrmResponder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSegUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSegUsuario.Designer.cs">
+      <DependentUpon>FrmSegUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSobreSW.cs">
       <SubType>Form</SubType>
@@ -181,6 +193,9 @@
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPerfilUsuario.resx">
+      <DependentUpon>FrmPerfilUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmResponder.resx">
       <DependentUpon>FrmResponder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSegUsuario.resx">
+      <DependentUpon>FrmSegUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSobreSW.resx">
       <DependentUpon>FrmSobreSW.cs</DependentUpon>

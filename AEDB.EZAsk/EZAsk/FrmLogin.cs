@@ -18,21 +18,35 @@ namespace EZAsk
     {
         Login _Control = new Login();
         int qtsTentativaLogin = 0;
+        Form _objFrm;
+        FrmPrincipal frmPrincipal = new FrmPrincipal();
 
         public FrmLogin()
         {
             InitializeComponent();
         }
 
+        private void abrirFrmFilho(object formFilho)
+        {
+            if (frmPrincipal.pnlPrincipal.Controls.Count > 0)
+                frmPrincipal.pnlPrincipal.Controls.RemoveAt(0);
+            Form frmF = formFilho as Form;
+            frmF.TopLevel = false;
+            frmF.Dock = DockStyle.Fill;
+            frmPrincipal.pnlPrincipal.Controls.Add(frmF);
+            frmPrincipal.pnlPrincipal.Tag = frmF;
+            frmF.Show();
+        }
+
         private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ((FrmPrincipal)this.MdiParent).menuLogin.Enabled = true;
+            //((FrmPrincipal)this.MdiParent).menuLogin.Enabled = true;
+            //FrmPrincipal menu = new FrmPrincipal();
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
             txtAltUsuario.Focus();
-           
         }
 
         //limpar os campos.
@@ -61,11 +75,6 @@ namespace EZAsk
             {
                 return true;
             }
-        }
-
-        private void imgLoginPadrao_Click(object sender, EventArgs e)
-        {
-            
         }
 
         // Botão Cadastrar da tela login.
@@ -108,10 +117,24 @@ namespace EZAsk
                     else
                     {
                         // Aqui quando Usuario for autenticado.
-                        FrmAmbienteUsuario frmAmbienteUsuario = new FrmAmbienteUsuario();
-                        frmAmbienteUsuario.MdiParent = MyGlobal.InstanceFrmPrincipal();
-                        frmAmbienteUsuario.Show();
-                        this.Close();
+                        //FrmAmbienteUsuario frmAmbienteUsuario = new FrmAmbienteUsuario();
+                        //frmAmbienteUsuario.MdiParent = MyGlobal.InstanceFrmPrincipal();
+                        //frmAmbienteUsuario.Show();
+                        //this.Close();
+
+                        //_objFrm?.Close();
+                        //frmPrincipal = new FrmPrincipal();
+                        //_objFrm = new FrmAmbienteUsuario 
+                        //{
+                        //    TopLevel = false,
+                        //    FormBorderStyle = FormBorderStyle.None,
+                        //    Dock = DockStyle.Fill
+                        //};
+                        //frmPrincipal.pnlPrincipal.Controls.Add(_objFrm);
+                        //frmPrincipal.pnlPrincipal.Tag = _objFrm;
+                        //_objFrm.Show();
+
+                        abrirFrmFilho(new FrmAmbienteUsuario());
                     }                   
                 }
             }
