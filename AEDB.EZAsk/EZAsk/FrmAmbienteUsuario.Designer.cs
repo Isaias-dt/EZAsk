@@ -99,6 +99,7 @@
             this.btnSairMenuUser.TabIndex = 4;
             this.btnSairMenuUser.Text = "Sair";
             this.btnSairMenuUser.UseVisualStyleBackColor = false;
+            this.btnSairMenuUser.Click += new System.EventHandler(this.btnSairMenuUser_Click);
             // 
             // btnSegurancaMenuUser
             // 
@@ -117,6 +118,7 @@
             this.btnSegurancaMenuUser.TabIndex = 4;
             this.btnSegurancaMenuUser.Text = "Segurança";
             this.btnSegurancaMenuUser.UseVisualStyleBackColor = false;
+            this.btnSegurancaMenuUser.Click += new System.EventHandler(this.btnSegurancaMenuUser_Click);
             // 
             // btnForumMenuUser
             // 
@@ -224,7 +226,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmAmbienteUsuario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Activated += new System.EventHandler(this.FrmAmbienteUsuario_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAmbienteUsuario_FormClosing);
             this.Load += new System.EventHandler(this.FrmAmbienteUsuario_Load);
             this.pnlMenuUser.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgUsuario)).EndInit();

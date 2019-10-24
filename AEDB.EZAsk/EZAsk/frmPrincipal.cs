@@ -12,14 +12,12 @@ namespace EZAsk
 {
     public partial class FrmPrincipal : Form
     {
-        private Form _objFrm;
-
         public FrmPrincipal()
         {
             InitializeComponent();
         }
 
-        private void abrirFrmFilho(object formFilho, bool Dock = true)
+        public void abrirFrmFilho(object formFilho, bool Dock = true)
         {
             if (this.pnlPrincipal.Controls.Count > 0)
                 this.pnlPrincipal.Controls.RemoveAt(0);
@@ -33,61 +31,58 @@ namespace EZAsk
             this.pnlPrincipal.Tag = frmF;
             frmF.Show();
         }
-
-        //Na propriedade deste form foi setado "isMdiConteiner = true", para virar um conteiner dos outros forms.
-        private void menuCadastra_Click(object sender, EventArgs e)
+        
+        // Esconde menu.
+        private void IconMenuPrincipal_Click(object sender, EventArgs e)
         {
-            menuCadastra.Enabled = false;
-            FrmCadastraUsuario frmCadUsuario = new FrmCadastraUsuario();
-            frmCadUsuario.MdiParent = this;
-            frmCadUsuario.Show();
+            if (pnlMenuPrincipal.Width == 170)
+            {
+                pnlMenuPrincipal.Width = 42;
+            }
+            else
+            {
+                pnlMenuPrincipal.Width = 170;
+            }
+        }
+        // Quando passar o mouse por cima execulta o evento hover. 
+        private void IconMenuPrincipal_MouseEnter(object sender, EventArgs e)
+        {
+            IconMenuPrincipal.BackColor = Color.Teal;
+        }
+        // Desativa o evento hover.
+        private void IconMenuPrincipal_MouseLeave(object sender, EventArgs e)
+        {
+            IconMenuPrincipal.BackColor = Color.Transparent;
         }
 
-        private void menuLogin_Click(object sender, EventArgs e)
+        private void btnMenuLogin_Click(object sender, EventArgs e)
         {
-            //menuLogin.Enabled = false;
-            //FrmLogin frmLogin = new FrmLogin();
-            //frmLogin.MdiParent = this;
-            //frmLogin.Show();
-
-            //_objFrm?.Close();
-            //_objFrm = new FrmLogin
-            //{
-            //    TopLevel = false
-            //};
-            //pnlPrincipal.Controls.Add(_objFrm);
-            //_objFrm.Show();
-
-            abrirFrmFilho(new FrmLogin(), false);
+            abrirFrmFilho(new FrmLogin());
         }
 
-        private void menuForum_Click(object sender, EventArgs e)
+        private void btnMenuCadastro_Click(object sender, EventArgs e)
         {
-            menuForum.Enabled = false;
-            FrmForum frmForum = new FrmForum();
-            frmForum.MdiParent = this;
-            frmForum.Show();
-
-            abrirFrmFilho(frmForum);
+            abrirFrmFilho(new FrmCadastraUsuario());
         }
 
-        private void menuSobre_Click(object sender, EventArgs e)
+        private void btnMenuForum_Click(object sender, EventArgs e)
         {
-            menuSobre.Enabled = false;
-            FrmSobreSW frmSobreSW = new FrmSobreSW();
-            frmSobreSW.MdiParent = this;
-            frmSobreSW.Show();
+            abrirFrmFilho(new FrmForum());
+        }
+
+        private void btnMenuSobre_Click(object sender, EventArgs e)
+        {
+            abrirFrmFilho(new FrmSobreSW());
+        }
+
+        private void btnRecConta_Click(object sender, EventArgs e)
+        {
+            abrirFrmFilho(new FrmRecuperarConta());
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            
-        }
-
-        private void pnlPrincipal_Paint(object sender, PaintEventArgs e)
-        {
 
         }
-
     }
 }

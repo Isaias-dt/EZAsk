@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EZAsk
 {
-    public partial class FrmForumTest : Form
+    public partial class FrmPergunta : Form
     {
-        public FrmForumTest()
+        public FrmPergunta()
         {
             InitializeComponent();
         }

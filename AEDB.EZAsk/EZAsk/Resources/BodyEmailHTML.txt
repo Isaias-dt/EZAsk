@@ -1,0 +1,48 @@
+﻿<style>
+    table {
+        width: 100%;
+        height: 30%;
+    }
+    
+    .header {
+        height: 20%;
+        background-color: darkgreen;
+        color: white;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-decoration-line: underline;
+    }
+
+    .body {
+        background-color: lightgray;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .footer {
+        height: 20%;
+        background-color: rgb(81, 131, 134);
+        text-align: center;
+        color: white;
+    }
+
+</style>
+<table>
+    <tr class="header">
+        <th>
+            <h3>Recuperação de Senha</h3>
+        </th>
+    </tr style="width: 100%;">
+    <tr class="body">
+        <td>
+			    
+        </td>
+    </tr>
+    <tr class="footer">
+        <td>
+            <p>
+                Suporte: <a href="#">EZAsk</a>.
+                <br>
+                <span>EZAsk</span>
+            </p>
+        </td>
+    </tr>
+</table>

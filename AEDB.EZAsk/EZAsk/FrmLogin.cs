@@ -18,12 +18,13 @@ namespace EZAsk
     {
         Login _Control = new Login();
         int qtsTentativaLogin = 0;
-        Form _objFrm;
         FrmPrincipal frmPrincipal = new FrmPrincipal();
+        UsuarioLogado _UsLogado = new UsuarioLogado();
 
         public FrmLogin()
         {
             InitializeComponent();
+            
         }
 
         private void abrirFrmFilho(object formFilho)
@@ -36,12 +37,6 @@ namespace EZAsk
             frmPrincipal.pnlPrincipal.Controls.Add(frmF);
             frmPrincipal.pnlPrincipal.Tag = frmF;
             frmF.Show();
-        }
-
-        private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //((FrmPrincipal)this.MdiParent).menuLogin.Enabled = true;
-            //FrmPrincipal menu = new FrmPrincipal();
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
@@ -85,10 +80,8 @@ namespace EZAsk
 
             frmCadUsuario.MdiParent = MyGlobal.InstanceFrmPrincipal();
             this.Close();
-            
+            //frmPrincipal.abrirFrmFilho(new FrmCadastraUsuario());
             frmCadUsuario.Show();
-            frmPrincipal.menuCadastra.Enabled = false;
-
         }
 
         // Botão Entrar no ambiente usuário.
@@ -100,6 +93,7 @@ namespace EZAsk
                 {   // Variavel recebe null se o nick e senha não for igual. 
                     
                     var bdUsuario = _Control.AutenticaUsuario(txtAltUsuario.Text, txtAltSenha.Text);
+                    
 
                     if (bdUsuario == null)
                     {
@@ -112,29 +106,13 @@ namespace EZAsk
                         {
                             lblTrocarSenha.Visible = true;
                         }
-                        
+                  
                     }
                     else
                     {
-                        // Aqui quando Usuario for autenticado.
-                        //FrmAmbienteUsuario frmAmbienteUsuario = new FrmAmbienteUsuario();
-                        //frmAmbienteUsuario.MdiParent = MyGlobal.InstanceFrmPrincipal();
-                        //frmAmbienteUsuario.Show();
-                        //this.Close();
-
-                        //_objFrm?.Close();
-                        //frmPrincipal = new FrmPrincipal();
-                        //_objFrm = new FrmAmbienteUsuario 
-                        //{
-                        //    TopLevel = false,
-                        //    FormBorderStyle = FormBorderStyle.None,
-                        //    Dock = DockStyle.Fill
-                        //};
-                        //frmPrincipal.pnlPrincipal.Controls.Add(_objFrm);
-                        //frmPrincipal.pnlPrincipal.Tag = _objFrm;
-                        //_objFrm.Show();
-
-                        abrirFrmFilho(new FrmAmbienteUsuario());
+                        _UsLogado.setUsuarioLogado(bdUsuario.EmailUsuario);
+                        this.Close();                                                                                                                                                                                                                                             
+                        frmPrincipal.abrirFrmFilho(new FrmAmbienteUsuario());
                     }                   
                 }
             }

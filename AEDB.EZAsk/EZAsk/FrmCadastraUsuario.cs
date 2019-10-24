@@ -27,13 +27,9 @@ namespace EZAsk
 
         private void FrmCadastraUsuario_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ((FrmPrincipal)this.MdiParent).menuCadastra.Enabled = true;
+
         }
 
-        private void FrmCadastraUsuario_Load(object sender, EventArgs e)
-        {
-           
-        }
         //limpar os campos.
         public void LimpaControles()
         {
@@ -79,7 +75,12 @@ namespace EZAsk
                 MessageBox.Show("Email inválido", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
-                  
+            else if (MyGlobal.ValidarNome(txtNomeUsuario.Text) == false)
+            {
+                MessageBox.Show("Nome inválido", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
             else
             {
                 // Validação de Email e nick, se existe no banco não pode cadastrar.
@@ -144,18 +145,44 @@ namespace EZAsk
            
             if (MyGlobal.ValidarEmail(txtEmailUsuario.Text) == false && txtEmailUsuario.Text != "")
             {
-                infLabelEmail.Text = "Digite um Email válido.";
-                infLabelEmail.Visible = true;                    
+                LblInfEmailUsuario.Text = "Digite um Email válido!";
+                LblInfEmailUsuario.Visible = true;                    
             }
             else
             {
-                infLabelEmail.Visible = false;
+                LblInfEmailUsuario.Visible = false;
             }
         }
 
         private void FrmCadastraUsuario_Activated(object sender, EventArgs e)
         {   // Sintaxes incorreta consertar.
-            ((FrmPrincipal)this.MdiParent).menuCadastra.Enabled = false;
+
+        }
+
+        private void txtNomeUsuario_Leave(object sender, EventArgs e)
+        {
+            if (MyGlobal.ValidarNome(txtNomeUsuario.Text) == false && txtNomeUsuario.Text != "")
+            {
+                lblInfNomeUsuario.Text = "Nome inválido por favor apenas Letras!";
+                lblInfNomeUsuario.Visible = true;
+            }
+            else
+            {
+                lblInfNomeUsuario.Visible = false;
+            }
+        }
+
+        private void txtNomeLogin_Leave(object sender, EventArgs e)
+        {
+            if (MyGlobal.ValidarNick(txtNomeLogin.Text) == false && txtNomeLogin.Text != "")
+            {
+                lblInfNomeLogin.Text = "Nome Usuário inválido! Por favor segue padrão (a-z, A-Z, 0-9 e ., -, _).";
+                lblInfNomeLogin.Visible = true;
+            }
+            else
+            {
+                lblInfNomeLogin.Visible = false;
+            }
         }
     }
 }

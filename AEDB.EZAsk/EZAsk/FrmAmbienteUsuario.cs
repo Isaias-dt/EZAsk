@@ -14,7 +14,6 @@ namespace EZAsk
 {
     public partial class FrmAmbienteUsuario : Form
     {
-        Form _objFrm;
 
         FrmPrincipal frmPrincipal = new FrmPrincipal();
         public FrmAmbienteUsuario()
@@ -24,44 +23,50 @@ namespace EZAsk
 
         private void FrmAmbienteUsuario_Load(object sender, EventArgs e)
         {
-            // Sintaxe errada.
-            //((FrmPrincipal)this.MdiParent).menuFrmPrincipal.Visible = false;
-            //this.WindowState = FormWindowState.Maximized;
-            //frmPrincipal.menuCadastra.Visible = false;
-
+            this.Parent = frmPrincipal.pnlPrincipal;
         }
 
-        private void FrmAmbienteUsuario_Activated(object sender, EventArgs e)
+        private void abrirFrmFilho(object formFilho, bool Dock = true)
         {
-            frmPrincipal.menuCadastra.Visible = false;
-            frmPrincipal.menuLogin.Visible = false;
-            
+            if (this.pnlContentUser.Controls.Count > 0)
+                this.pnlContentUser.Controls.RemoveAt(0);
+            Form frmF = formFilho as Form;
+            frmF.TopLevel = false;
+            if (Dock)
+            {
+                frmF.Dock = DockStyle.Fill;
+            }
+            this.pnlContentUser.Controls.Add(frmF);
+            this.pnlContentUser.Tag = frmF;
+            frmF.Show();
         }
 
         private void btnPerfilMenuUser_Click(object sender, EventArgs e)
         {
-            _objFrm?.Close();
-            _objFrm = new FrmPerfilUsuario
-            {
-                TopLevel = false,
-                FormBorderStyle = FormBorderStyle.None,
-                Dock = DockStyle.Fill  
-            };
-            pnlContentUser.Controls.Add(_objFrm);
-            _objFrm.Show();
+            abrirFrmFilho(new FrmPerfilUsuario());
         }
 
         private void btnForumMenuUser_Click(object sender, EventArgs e)
         {
-            _objFrm?.Close();
-            _objFrm = new FrmForum
+            abrirFrmFilho(new FrmForum());
+        }
+
+        private void btnSegurancaMenuUser_Click(object sender, EventArgs e)
+        {
+            abrirFrmFilho(new FrmSegUsuario());
+        }
+
+        private void btnSairMenuUser_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void FrmAmbienteUsuario_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Desejar sair de sua conta?", "Deslogar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
-                TopLevel = false,
-                FormBorderStyle = FormBorderStyle.None,
-                Dock = DockStyle.Fill
-            };
-            pnlContentUser.Controls.Add(_objFrm);
-            _objFrm.Show();
+                e.Cancel = true;
+            }
         }
     }
 }

@@ -25,12 +25,14 @@ namespace EZAsk
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Bairro> Bairro { get; set; }
-        public virtual DbSet<Cidade> Cidade { get; set; }
-        public virtual DbSet<TipoUsuario> TipoUsuario { get; set; }
         public virtual DbSet<Forum> Forum { get; set; }
-        public virtual DbSet<Resposta> Resposta { get; set; }
         public virtual DbSet<Materia> Materia { get; set; }
+        public virtual DbSet<MsgSuporte> MsgSuporte { get; set; }
+        public virtual DbSet<Pais> Pais { get; set; }
+        public virtual DbSet<Resposta> Resposta { get; set; }
+        public virtual DbSet<TipoUsuario> TipoUsuario { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Cidade> Cidade { get; set; }
+        public virtual DbSet<Estado> Estado { get; set; }
     }
 }

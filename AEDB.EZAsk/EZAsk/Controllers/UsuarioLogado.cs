@@ -8,14 +8,16 @@ using EZAsk.Repository;
 
 namespace EZAsk.Controllers
 {
-    class CadastraUsuario :IDisposable
+    class UsuarioLogado :IDisposable
     {
+        
         RepositoryUsuario _RepositoryUsuario;
         RepositoryCidade _RepositoryCidade;
         RepositoryEstado _RepositoryEstado;
         RepositoryTipoUsuario _RepositoryTipoUs;
+        private string emailUsuario;
 
-        public CadastraUsuario()
+        public UsuarioLogado()
         {
             _RepositoryCidade = new RepositoryCidade();
             _RepositoryUsuario = new RepositoryUsuario();
@@ -56,6 +58,47 @@ namespace EZAsk.Controllers
         public Usuario getNick(string nick)
         {
             return _RepositoryUsuario.ProucuraNick(nick);
+        }
+
+        /**** Cidade ****/
+
+        public Cidade SelecionarCidade(int cod)
+        {
+            return _RepositoryCidade.Selecionar(cod);
+        }
+
+        public List<Cidade> SelecionarTodasCidades()
+        {
+            return _RepositoryCidade.SelecionarTodas();
+        }
+
+        /**** Estado ****/
+
+        public Estado SelecionarEstado(int cod)
+        {
+            return _RepositoryEstado.Selecionar(cod);
+        }
+
+        public List<Estado> SelecionarTodosEstados()
+        {
+            return _RepositoryEstado.SelecionarTodos();
+        }
+
+        /**** Tipo usuario ****/
+
+        public TipoUsuario SelecionarTipoUs(int cod)
+        {
+            return _RepositoryTipoUs.Selecionar(cod);
+        }
+
+        public List<TipoUsuario> SelecionarTodosTipoUs()
+        {
+            return _RepositoryTipoUs.SelecionarTodos();
+        }
+
+        public void setUsuarioLogado(string email)
+        {
+            this.emailUsuario = email;
         }
 
         public void Dispose()

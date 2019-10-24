@@ -29,80 +29,133 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
-            this.menuFrmPrincipal = new System.Windows.Forms.MenuStrip();
-            this.menuLogin = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuCadastra = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuForum = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSobre = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlMenuPrincipal = new System.Windows.Forms.Panel();
+            this.IconMenuPrincipal = new System.Windows.Forms.PictureBox();
+            this.btnMenuSobre = new System.Windows.Forms.Button();
+            this.btnRecConta = new System.Windows.Forms.Button();
+            this.btnMenuForum = new System.Windows.Forms.Button();
+            this.btnMenuCadastro = new System.Windows.Forms.Button();
+            this.btnMenuLogin = new System.Windows.Forms.Button();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
-            this.menuFrmPrincipal.SuspendLayout();
+            this.pnlMenuPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IconMenuPrincipal)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuFrmPrincipal
+            // pnlMenuPrincipal
             // 
-            this.menuFrmPrincipal.AutoSize = false;
-            this.menuFrmPrincipal.BackColor = System.Drawing.Color.Teal;
-            this.menuFrmPrincipal.Dock = System.Windows.Forms.DockStyle.Left;
-            this.menuFrmPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuLogin,
-            this.menuCadastra,
-            this.menuForum,
-            this.menuSobre});
-            this.menuFrmPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.menuFrmPrincipal.Name = "menuFrmPrincipal";
-            this.menuFrmPrincipal.Padding = new System.Windows.Forms.Padding(3, 8, 2, 2);
-            this.menuFrmPrincipal.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuFrmPrincipal.Size = new System.Drawing.Size(159, 450);
-            this.menuFrmPrincipal.TabIndex = 0;
-            this.menuFrmPrincipal.Text = "menuPrincipal";
+            this.pnlMenuPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.pnlMenuPrincipal.Controls.Add(this.IconMenuPrincipal);
+            this.pnlMenuPrincipal.Controls.Add(this.btnMenuSobre);
+            this.pnlMenuPrincipal.Controls.Add(this.btnRecConta);
+            this.pnlMenuPrincipal.Controls.Add(this.btnMenuForum);
+            this.pnlMenuPrincipal.Controls.Add(this.btnMenuCadastro);
+            this.pnlMenuPrincipal.Controls.Add(this.btnMenuLogin);
+            this.pnlMenuPrincipal.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlMenuPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.pnlMenuPrincipal.Name = "pnlMenuPrincipal";
+            this.pnlMenuPrincipal.Size = new System.Drawing.Size(170, 450);
+            this.pnlMenuPrincipal.TabIndex = 0;
             // 
-            // menuLogin
+            // IconMenuPrincipal
             // 
-            this.menuLogin.AutoSize = false;
-            this.menuLogin.BackColor = System.Drawing.Color.Teal;
-            this.menuLogin.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuLogin.ForeColor = System.Drawing.SystemColors.Control;
-            this.menuLogin.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.menuLogin.Name = "menuLogin";
-            this.menuLogin.Size = new System.Drawing.Size(159, 40);
-            this.menuLogin.Text = "Login";
-            this.menuLogin.Click += new System.EventHandler(this.menuLogin_Click);
+            this.IconMenuPrincipal.BackColor = System.Drawing.Color.Transparent;
+            this.IconMenuPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.IconMenuPrincipal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IconMenuPrincipal.Image = ((System.Drawing.Image)(resources.GetObject("IconMenuPrincipal.Image")));
+            this.IconMenuPrincipal.Location = new System.Drawing.Point(3, 3);
+            this.IconMenuPrincipal.Name = "IconMenuPrincipal";
+            this.IconMenuPrincipal.Size = new System.Drawing.Size(35, 32);
+            this.IconMenuPrincipal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.IconMenuPrincipal.TabIndex = 1;
+            this.IconMenuPrincipal.TabStop = false;
+            this.IconMenuPrincipal.Click += new System.EventHandler(this.IconMenuPrincipal_Click);
+            this.IconMenuPrincipal.MouseEnter += new System.EventHandler(this.IconMenuPrincipal_MouseEnter);
+            this.IconMenuPrincipal.MouseLeave += new System.EventHandler(this.IconMenuPrincipal_MouseLeave);
             // 
-            // menuCadastra
+            // btnMenuSobre
             // 
-            this.menuCadastra.AutoSize = false;
-            this.menuCadastra.BackColor = System.Drawing.Color.Teal;
-            this.menuCadastra.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuCadastra.ForeColor = System.Drawing.SystemColors.Control;
-            this.menuCadastra.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.menuCadastra.Name = "menuCadastra";
-            this.menuCadastra.Size = new System.Drawing.Size(159, 40);
-            this.menuCadastra.Text = "Cadastrar";
-            this.menuCadastra.Click += new System.EventHandler(this.menuCadastra_Click);
+            this.btnMenuSobre.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenuSobre.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuSobre.FlatAppearance.BorderSize = 0;
+            this.btnMenuSobre.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.btnMenuSobre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuSobre.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuSobre.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnMenuSobre.Location = new System.Drawing.Point(0, 240);
+            this.btnMenuSobre.Name = "btnMenuSobre";
+            this.btnMenuSobre.Size = new System.Drawing.Size(170, 42);
+            this.btnMenuSobre.TabIndex = 0;
+            this.btnMenuSobre.Text = "Sobre";
+            this.btnMenuSobre.UseVisualStyleBackColor = false;
+            this.btnMenuSobre.Click += new System.EventHandler(this.btnMenuSobre_Click);
             // 
-            // menuForum
+            // btnRecConta
             // 
-            this.menuForum.AutoSize = false;
-            this.menuForum.BackColor = System.Drawing.Color.Teal;
-            this.menuForum.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.menuForum.ForeColor = System.Drawing.SystemColors.Control;
-            this.menuForum.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.menuForum.Name = "menuForum";
-            this.menuForum.Size = new System.Drawing.Size(159, 40);
-            this.menuForum.Text = "Forum";
-            this.menuForum.Click += new System.EventHandler(this.menuForum_Click);
+            this.btnRecConta.BackColor = System.Drawing.Color.Transparent;
+            this.btnRecConta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRecConta.FlatAppearance.BorderSize = 0;
+            this.btnRecConta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.btnRecConta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRecConta.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecConta.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnRecConta.Location = new System.Drawing.Point(0, 144);
+            this.btnRecConta.Name = "btnRecConta";
+            this.btnRecConta.Size = new System.Drawing.Size(170, 42);
+            this.btnRecConta.TabIndex = 0;
+            this.btnRecConta.Text = "Recuperar conta";
+            this.btnRecConta.UseVisualStyleBackColor = false;
+            this.btnRecConta.Click += new System.EventHandler(this.btnRecConta_Click);
             // 
-            // menuSobre
+            // btnMenuForum
             // 
-            this.menuSobre.AutoSize = false;
-            this.menuSobre.BackColor = System.Drawing.Color.Teal;
-            this.menuSobre.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.menuSobre.ForeColor = System.Drawing.SystemColors.Control;
-            this.menuSobre.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.menuSobre.Name = "menuSobre";
-            this.menuSobre.Size = new System.Drawing.Size(159, 40);
-            this.menuSobre.Text = "Sobre";
-            this.menuSobre.Click += new System.EventHandler(this.menuSobre_Click);
+            this.btnMenuForum.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenuForum.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuForum.FlatAppearance.BorderSize = 0;
+            this.btnMenuForum.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.btnMenuForum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuForum.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuForum.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnMenuForum.Location = new System.Drawing.Point(0, 192);
+            this.btnMenuForum.Name = "btnMenuForum";
+            this.btnMenuForum.Size = new System.Drawing.Size(170, 42);
+            this.btnMenuForum.TabIndex = 0;
+            this.btnMenuForum.Text = "Forum";
+            this.btnMenuForum.UseVisualStyleBackColor = false;
+            this.btnMenuForum.Click += new System.EventHandler(this.btnMenuForum_Click);
+            // 
+            // btnMenuCadastro
+            // 
+            this.btnMenuCadastro.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenuCadastro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuCadastro.FlatAppearance.BorderSize = 0;
+            this.btnMenuCadastro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.btnMenuCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuCadastro.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuCadastro.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnMenuCadastro.Location = new System.Drawing.Point(0, 96);
+            this.btnMenuCadastro.Name = "btnMenuCadastro";
+            this.btnMenuCadastro.Size = new System.Drawing.Size(170, 42);
+            this.btnMenuCadastro.TabIndex = 0;
+            this.btnMenuCadastro.Text = "Cadastro";
+            this.btnMenuCadastro.UseVisualStyleBackColor = false;
+            this.btnMenuCadastro.Click += new System.EventHandler(this.btnMenuCadastro_Click);
+            // 
+            // btnMenuLogin
+            // 
+            this.btnMenuLogin.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenuLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuLogin.FlatAppearance.BorderSize = 0;
+            this.btnMenuLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.btnMenuLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuLogin.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuLogin.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnMenuLogin.Location = new System.Drawing.Point(0, 48);
+            this.btnMenuLogin.Name = "btnMenuLogin";
+            this.btnMenuLogin.Size = new System.Drawing.Size(170, 42);
+            this.btnMenuLogin.TabIndex = 0;
+            this.btnMenuLogin.Text = "Login";
+            this.btnMenuLogin.UseVisualStyleBackColor = false;
+            this.btnMenuLogin.Click += new System.EventHandler(this.btnMenuLogin_Click);
             // 
             // pnlPrincipal
             // 
@@ -110,12 +163,10 @@
             this.pnlPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlPrincipal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPrincipal.ForeColor = System.Drawing.SystemColors.Control;
-            this.pnlPrincipal.Location = new System.Drawing.Point(159, 0);
+            this.pnlPrincipal.Location = new System.Drawing.Point(170, 0);
             this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(641, 450);
-            this.pnlPrincipal.TabIndex = 2;
-            this.pnlPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPrincipal_Paint);
+            this.pnlPrincipal.Size = new System.Drawing.Size(630, 450);
+            this.pnlPrincipal.TabIndex = 6;
             // 
             // FrmPrincipal
             // 
@@ -124,28 +175,30 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pnlPrincipal);
-            this.Controls.Add(this.menuFrmPrincipal);
+            this.Controls.Add(this.pnlMenuPrincipal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
-            this.MainMenuStrip = this.menuFrmPrincipal;
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "FrmPrincipal";
             this.Text = "EZAsk";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
-            this.menuFrmPrincipal.ResumeLayout(false);
-            this.menuFrmPrincipal.PerformLayout();
+            this.pnlMenuPrincipal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.IconMenuPrincipal)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        public System.Windows.Forms.ToolStripMenuItem menuLogin;
-        public System.Windows.Forms.ToolStripMenuItem menuCadastra;
-        public System.Windows.Forms.ToolStripMenuItem menuForum;
-        public System.Windows.Forms.ToolStripMenuItem menuSobre;
-        public System.Windows.Forms.MenuStrip menuFrmPrincipal;
+
+        public System.Windows.Forms.Panel pnlMenuPrincipal;
         public System.Windows.Forms.Panel pnlPrincipal;
+        public System.Windows.Forms.Button btnMenuLogin;
+        public System.Windows.Forms.Button btnMenuSobre;
+        public System.Windows.Forms.Button btnMenuForum;
+        public System.Windows.Forms.Button btnMenuCadastro;
+        public System.Windows.Forms.PictureBox IconMenuPrincipal;
+        public System.Windows.Forms.Button btnRecConta;
     }
 }
 

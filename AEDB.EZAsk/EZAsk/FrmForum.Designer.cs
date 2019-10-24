@@ -36,24 +36,29 @@
             this.TituloPost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnResponder = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.pnlHeaderForum = new System.Windows.Forms.Panel();
+            this.pnlBodyForum = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.grdForum)).BeginInit();
+            this.pnlHeaderForum.SuspendLayout();
+            this.pnlBodyForum.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPesquisar
             // 
             this.btnPesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPesquisar.Location = new System.Drawing.Point(675, 78);
+            this.btnPesquisar.Location = new System.Drawing.Point(663, 67);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(106, 27);
             this.btnPesquisar.TabIndex = 1;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // txtPesquisar
             // 
             this.txtPesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPesquisar.Location = new System.Drawing.Point(290, 82);
+            this.txtPesquisar.Location = new System.Drawing.Point(278, 71);
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(379, 20);
             this.txtPesquisar.TabIndex = 2;
@@ -62,6 +67,9 @@
             // 
             this.grdForum.AllowUserToAddRows = false;
             this.grdForum.AllowUserToDeleteRows = false;
+            this.grdForum.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grdForum.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdForum.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grdForum.BackgroundColor = System.Drawing.SystemColors.Control;
@@ -74,15 +82,14 @@
             this.TituloPost,
             this.Post,
             this.btnResponder});
-            this.grdForum.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grdForum.GridColor = System.Drawing.SystemColors.Control;
-            this.grdForum.Location = new System.Drawing.Point(0, 108);
+            this.grdForum.Location = new System.Drawing.Point(0, 0);
             this.grdForum.MultiSelect = false;
             this.grdForum.Name = "grdForum";
             this.grdForum.ReadOnly = true;
             this.grdForum.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.grdForum.RowHeadersVisible = false;
-            this.grdForum.Size = new System.Drawing.Size(781, 365);
+            this.grdForum.Size = new System.Drawing.Size(781, 376);
             this.grdForum.StandardTab = true;
             this.grdForum.TabIndex = 0;
             this.grdForum.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdForum_CellClick);
@@ -117,15 +124,33 @@
             this.btnResponder.Name = "btnResponder";
             this.btnResponder.ReadOnly = true;
             // 
+            // pnlHeaderForum
+            // 
+            this.pnlHeaderForum.Controls.Add(this.btnPesquisar);
+            this.pnlHeaderForum.Controls.Add(this.txtPesquisar);
+            this.pnlHeaderForum.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeaderForum.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeaderForum.Name = "pnlHeaderForum";
+            this.pnlHeaderForum.Size = new System.Drawing.Size(781, 97);
+            this.pnlHeaderForum.TabIndex = 3;
+            // 
+            // pnlBodyForum
+            // 
+            this.pnlBodyForum.Controls.Add(this.grdForum);
+            this.pnlBodyForum.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlBodyForum.Location = new System.Drawing.Point(0, 97);
+            this.pnlBodyForum.Name = "pnlBodyForum";
+            this.pnlBodyForum.Size = new System.Drawing.Size(781, 376);
+            this.pnlBodyForum.TabIndex = 3;
+            // 
             // FrmForum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(781, 473);
-            this.Controls.Add(this.txtPesquisar);
-            this.Controls.Add(this.btnPesquisar);
-            this.Controls.Add(this.grdForum);
+            this.Controls.Add(this.pnlBodyForum);
+            this.Controls.Add(this.pnlHeaderForum);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmForum";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -134,8 +159,10 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmForum_FormClosed);
             this.Load += new System.EventHandler(this.FrmForum_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdForum)).EndInit();
+            this.pnlHeaderForum.ResumeLayout(false);
+            this.pnlHeaderForum.PerformLayout();
+            this.pnlBodyForum.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -148,5 +175,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TituloPost;
         private System.Windows.Forms.DataGridViewTextBoxColumn Post;
         private System.Windows.Forms.DataGridViewButtonColumn btnResponder;
+        private System.Windows.Forms.Panel pnlHeaderForum;
+        private System.Windows.Forms.Panel pnlBodyForum;
     }
 }

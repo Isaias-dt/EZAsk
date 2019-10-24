@@ -12,17 +12,10 @@ namespace EZAsk
     using System;
     using System.Collections.Generic;
     
-    public partial class Forum
+    public partial class MsgSuporte
     {
-        public int IDPost { get; set; }
-        public string TituloPost { get; set; }
-        public string UsuarioPost { get; set; }
-        public string Post { get; set; }
-        public Nullable<int> RespostaPost { get; set; }
-        public Nullable<int> Materia { get; set; }
-    
-        public virtual Materia Materia1 { get; set; }
-        public virtual Resposta Resposta { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public int IDMsg { get; set; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
     }
 }

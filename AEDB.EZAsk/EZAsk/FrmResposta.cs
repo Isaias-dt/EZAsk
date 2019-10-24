@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace EZAsk
 {
-    public partial class FrmResponder : Form
+    public partial class FrmResposta : Form
     {
-        public FrmResponder()
+        public FrmResposta()
         {
             InitializeComponent();
-        }
-
-        private void FrmResponder_Load(object sender, EventArgs e)
-        {
-              
         }
     }
 }

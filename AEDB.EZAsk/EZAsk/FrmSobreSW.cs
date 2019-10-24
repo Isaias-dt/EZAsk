@@ -15,11 +15,6 @@ namespace EZAsk
         {
             InitializeComponent();
             this.Text = String.Format("Sobre {0}", AssemblyTitle);
-            this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("Versão {0}", AssemblyVersion);
-            this.labelCopyright.Text = AssemblyCopyright;
-            this.labelCompanyName.Text = AssemblyCompany;
-            this.txtDescricaoSW.Text = AssemblyDescription;
         }
 
         #region Acessório de Atributos do Assembly
@@ -105,18 +100,6 @@ namespace EZAsk
         private void okButton_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void FrmSobreSW_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void FrmSobreSW_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            ((FrmPrincipal)this.MdiParent).menuSobre.Enabled = true;
-        }
-
- 
+        } 
     }
 }

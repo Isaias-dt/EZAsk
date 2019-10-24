@@ -21,7 +21,7 @@ namespace EZAsk
 
         private void FrmForum_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ((FrmPrincipal)this.MdiParent).menuForum.Enabled = true;
+
         }
 
         private void FrmForum_Load(object sender, EventArgs e)
@@ -34,6 +34,11 @@ namespace EZAsk
         private void grdForum_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             new FrmResponder().ShowDialog();
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }

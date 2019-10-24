@@ -12,20 +12,20 @@ namespace EZAsk
     using System;
     using System.Collections.Generic;
     
-    public partial class Cidade
+    public partial class Pais
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Cidade()
+        public Pais()
         {
             this.Usuario = new HashSet<Usuario>();
         }
     
         public int id { get; set; }
         public string nome { get; set; }
-        public Nullable<int> uf { get; set; }
-        public Nullable<int> ibge { get; set; }
+        public string nome_pt { get; set; }
+        public string sigla { get; set; }
+        public Nullable<int> bacen { get; set; }
     
-        public virtual Estado Estado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuario> Usuario { get; set; }
     }
