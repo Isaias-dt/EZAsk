@@ -74,7 +74,7 @@
             // 
             // btnMenuSobre
             // 
-            this.btnMenuSobre.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenuSobre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnMenuSobre.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuSobre.FlatAppearance.BorderSize = 0;
             this.btnMenuSobre.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
@@ -91,7 +91,7 @@
             // 
             // btnRecConta
             // 
-            this.btnRecConta.BackColor = System.Drawing.Color.Transparent;
+            this.btnRecConta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnRecConta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRecConta.FlatAppearance.BorderSize = 0;
             this.btnRecConta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
@@ -108,7 +108,7 @@
             // 
             // btnMenuForum
             // 
-            this.btnMenuForum.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenuForum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnMenuForum.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuForum.FlatAppearance.BorderSize = 0;
             this.btnMenuForum.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
@@ -125,7 +125,7 @@
             // 
             // btnMenuCadastro
             // 
-            this.btnMenuCadastro.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenuCadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnMenuCadastro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuCadastro.FlatAppearance.BorderSize = 0;
             this.btnMenuCadastro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
@@ -142,7 +142,7 @@
             // 
             // btnMenuLogin
             // 
-            this.btnMenuLogin.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenuLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnMenuLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuLogin.FlatAppearance.BorderSize = 0;
             this.btnMenuLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;

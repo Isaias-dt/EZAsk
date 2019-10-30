@@ -7,23 +7,23 @@ using EZAsk.Helper;
 
 namespace EZAsk.Repository
 {
-    public class RepositoryTipoUsuario:IDisposable
+    public class RepositoryFormacao:IDisposable
     {
         EZAskEntities oDb;
 
-        public RepositoryTipoUsuario()
+        public RepositoryFormacao()
         {
             oDb = MyGlobal.getDataContext();
         }
 
-        public TipoUsuario Selecionar(int cod)
+        public Formacao Selecionar(int cod)
         {
-            return (from p in oDb.TipoUsuario where p.IDTipoUsuario == cod select p).FirstOrDefault();
+            return (from p in oDb.Formacao where p.IDFormacao == cod select p).FirstOrDefault();
         }
 
-        public List<TipoUsuario> SelecionarTodos()
+        public List<Formacao> SelecionarTodos()
         {
-            return (from p in oDb.TipoUsuario orderby p.NomeTipoUsuario select p).ToList();
+            return (from p in oDb.Formacao orderby p.NomeFormacao select p).ToList();
         }
 
         public void Dispose()

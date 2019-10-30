@@ -12,26 +12,15 @@ namespace EZAsk.Helper
 {
     public class MyGlobal
     {
-        FrmPrincipal frmPrincipal;
         private static FrmPrincipal instanceMdiParentFrmPrincipal;
 
-        public static EZAskEntities getDataContext ()
+        public static EZAskEntities getDataContext()
         {
             EZAskEntities oDb = new EZAskEntities();
             oDb.Configuration.ProxyCreationEnabled = false;
             return oDb;
         }
 
-        //public void EnableBtnMenu(bool menu)
-        //{
-        //    frmPrincipal = new FrmPrincipal();
-        //    frmPrincipal.menuLogin.Enabled = menu;
-        //    frmPrincipal.menuCadastra.Enabled = menu;
-        //    frmPrincipal.menuForum.Enabled = menu;
-        //    frmPrincipal.menuSobre.Enabled = menu;
-        //}
-
-        // Menssagem Exception tratada.
         public static string MsgErro(Exception ex)
         {
             string erro = ex.Message;
@@ -85,6 +74,28 @@ namespace EZAsk.Helper
             }
         }
 
+
+        //Valida Senha.
+        public static bool ValidarSenha(string strSenha)
+        {
+            string strModelo = "^[a-zA-Z0-9]*[._-]{4}$";
+            if (System.Text.RegularExpressions.Regex.IsMatch(strSenha, strModelo))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static void limitarDigitoSenha(KeyPressEventArgs e)
+        {
+            // [a-z][A-Z][0-9][.-_]
+            if (!(char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == '-' || e.KeyChar == '_') && e.KeyChar != (char)8)
+                e.Handled = true;
+        }
+
         // Função singleton do frmPrincipa.
         public static FrmPrincipal InstanceFrmPrincipal()
         {
@@ -112,5 +123,20 @@ namespace EZAsk.Helper
             return returnImage;
         }
 
+        // Metodo que inseri o form dentro do panel.
+        public static void abrirFrmFilho(object formFilho, Panel pnlConteiner, bool Dock = true)
+        {
+            if (pnlConteiner.Controls.Count > 0)
+                pnlConteiner.Controls.RemoveAt(0);
+            Form frmF = formFilho as Form;
+            frmF.TopLevel = false;
+            if (Dock)
+            {
+                frmF.Dock = DockStyle.Fill;
+            }
+            pnlConteiner.Controls.Add(frmF);
+            pnlConteiner.Tag = frmF;
+            frmF.Show();
+        }
     }
 }

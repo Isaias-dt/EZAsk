@@ -106,13 +106,17 @@ namespace EZAsk
                         {
                             lblTrocarSenha.Visible = true;
                         }
-                  
                     }
                     else
-                    {
-                        _UsLogado.setUsuarioLogado(bdUsuario.EmailUsuario);
-                        this.Close();                                                                                                                                                                                                                                             
-                        frmPrincipal.abrirFrmFilho(new FrmAmbienteUsuario());
+                    { 
+                        // Quando for autenticado.
+
+                        UsuarioLogado.IdEmailLogado = bdUsuario.EmailUsuario; // Envia o id para metodo get e set FrmAmbienteUsuario.
+                        MyGlobal.abrirFrmFilho(new FrmAmbienteUsuario(), frmPrincipal.pnlPrincipal);
+                        new FrmAmbienteUsuario().Show();
+                        new FrmPrincipal().Close();
+                        this.Close();
+                      
                     }                   
                 }
             }

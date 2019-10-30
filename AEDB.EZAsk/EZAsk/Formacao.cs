@@ -12,16 +12,16 @@ namespace EZAsk
     using System;
     using System.Collections.Generic;
     
-    public partial class TipoUsuario
+    public partial class Formacao
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TipoUsuario()
+        public Formacao()
         {
             this.Usuario = new HashSet<Usuario>();
         }
     
-        public int IDTipoUsuario { get; set; }
-        public string NomeTipoUsuario { get; set; }
+        public int IDFormacao { get; set; }
+        public string NomeFormacao { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuario> Usuario { get; set; }

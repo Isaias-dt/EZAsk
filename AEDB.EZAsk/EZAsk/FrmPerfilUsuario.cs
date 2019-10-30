@@ -17,13 +17,23 @@ namespace EZAsk
 
         private bool editarPerfil = false;
         private UsuarioLogado _UsLogado = new UsuarioLogado();
+        private FrmAmbienteUsuario frm = new FrmAmbienteUsuario();
+        Usuario oUsuario;
 
         public FrmPerfilUsuario()
         {
             InitializeComponent();
+            oUsuario = _UsLogado.Selecionar(UsuarioLogado.IdEmailLogado);
         }
 
         private void FrmPerfilUsuario_Load(object sender, EventArgs e)
+        {
+            comboxPerfilUs();
+            carregaDados();
+        }
+        
+        // Comboxs perfil Usuario.
+        private void comboxPerfilUs()
         {
             var listaCidades = _UsLogado.SelecionarTodasCidades();
             cboCidade.ValueMember = "id";
@@ -35,10 +45,27 @@ namespace EZAsk
             cboEstado.DisplayMember = "uf";
             cboEstado.DataSource = listaEstados;
 
-            var listaTipoUs = _UsLogado.SelecionarTodosTipoUs();
-            cboTipoUsuario.ValueMember = "IDTipoUsuario";
-            cboTipoUsuario.DisplayMember = "NomeTipoUsuario";
-            cboTipoUsuario.DataSource = listaTipoUs;
+            var listaTipoUs = _UsLogado.SelecionarTodasFormacao();
+            cboFormacao.ValueMember = "IDFormacao";
+            cboFormacao.DisplayMember = "NomeFormacao";
+            cboFormacao.DataSource = listaTipoUs;
+        }
+
+        private void carregaDados()
+        {
+            txtNome.Text = oUsuario.NomeUsuario;
+            if (oUsuario.DataNascimento != null)
+                dtDataNascimento.Text = oUsuario.DataNascimento;
+            if (oUsuario.Cidade != null)
+                cboCidade.SelectedValue = oUsuario.Cidade;
+            if (oUsuario.Estado != null)
+                cboEstado.SelectedValue = oUsuario.Estado;
+            if (oUsuario.Bairro != null)
+                txtBairro.Text = oUsuario.Bairro;
+            if (oUsuario.Formacao != null)
+                cboFormacao.SelectedValue = oUsuario.Formacao;
+            if (oUsuario.ImgUsuario != null)
+                imgPerfilUsuario.BackgroundImage = MyGlobal.byteArrayToImage(oUsuario.ImgUsuario);
         }
 
         private void btnUploadImg_Click(object sender, EventArgs e)
@@ -54,40 +81,11 @@ namespace EZAsk
             }
         }
 
-        public bool validaControle()
-        {
-            // guarda o valor do usuario e o email se não existe guarda null.
-
-            var email = _UsLogado.getEmail(txtNome.Text);
-            var nick = _UsLogado.getNick(txtSobrenome.Text);
-
-            // verifica se os campos estão vazio se estiver retorna false.
-            if (txtNome.Text.Trim() == "")
-            {
-                MessageBox.Show("Por favor preencha o Nome!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
-            }
-
-            else if (txtNome.Text.Trim() == "")
-            {
-                MessageBox.Show("Por favor preencha o seu nome Usuario!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
-            }
-
-            else if (txtSobrenome.Text.Trim() == "")
-            {
-                MessageBox.Show("Por favor preencha o Email!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
-            }
- 
-            return false;
-        }
-
+        // Habilita e desabilita os controles;
         private void habilitaControles(bool enable)
         {
             txtNome.Enabled = enable;
-            txtSobrenome.Enabled = enable;
-            cboTipoUsuario.Enabled = enable;
+            cboFormacao.Enabled = enable;
             dtDataNascimento.Enabled = enable;
             txtBairro.Enabled = enable;
             cboCidade.Enabled = enable;
@@ -97,86 +95,97 @@ namespace EZAsk
             editarPerfil = enable;
         }
 
+        public bool validaControle()
+        {
+           
+            // verifica se os campos estão vazio se estiver retorna false.
+            if (txtBairro.Text.Trim() == "" && MyGlobal.ValidarNome(txtBairro.Text))
+            {
+                MessageBox.Show("Por favor preencha Bairro onde reside!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            else if (txtNome.Text.Trim() == "" && MyGlobal.ValidarNome(txtNome.Text))
+            {
+                MessageBox.Show("Por favor preencha o seu nome!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            else if (_UsLogado.SelecionarEstado((int)cboEstado.SelectedValue) == null || cboEstado.Text =="")
+            {
+                MessageBox.Show("Erro ao alterar\nO campo pode estar em branco ou o valor não está registrado no sistema!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            else if (_UsLogado.SelecionarCidade((int)cboCidade.SelectedValue) == null || cboCidade.Text == "")
+            {
+                MessageBox.Show("Erro ao alterar\nO campo pode estar em branco ou o valor não está registrado no sistema!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            else if (_UsLogado.SelecionarFormacao((int)cboFormacao.SelectedValue) == null || cboFormacao.Text == "")
+            {
+                MessageBox.Show("Erro ao alterar\nO campo pode estar em branco ou o valor não está registrado no sistema!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            else
+            {
+                return true;
+            }
+            
+        }
+        
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (validaControle() == true && editarPerfil == false)
+            try
             {
-                try
+                if (validaControle())
                 {
-                    if (validaControle())
-                    {
-                        Usuario oUsuario = new Usuario();
-
-                        oUsuario.NomeUsuario = txtNome.Text;
-                        oUsuario.NomeLogin = txtSobrenome.Text;
-                        oUsuario.DataNascimento = dtDataNascimento.Text;
-                        //oUsuario.TipoUsuario = txtTipoUsuario.Text;
-                        //oUsuario.Estado = dtDataNascimento.Text;
-                        //oUsuario.Cidade = dtDataNascimento.Text;
-                        //oUsuario.Bairro = dtDataNascimento.Text;
-                        oUsuario.ImgUsuario = MyGlobal.imageToByteArray(imgPerfilUsuario.BackgroundImage);
-
-                        _UsLogado.Incluir(oUsuario);
-                        attDadosCampo();
-
-                    }
+                    oUsuario.NomeUsuario = txtNome.Text;
+                    oUsuario.DataNascimento = dtDataNascimento.Text;
+                    oUsuario.Formacao = (int)cboFormacao.SelectedValue;
+                    oUsuario.Estado = (int) cboEstado.SelectedValue;
+                    oUsuario.Cidade = (int) cboCidade.SelectedValue;
+                    oUsuario.Bairro = txtBairro.Text;
+                    oUsuario.ImgUsuario = MyGlobal.imageToByteArray(imgPerfilUsuario.BackgroundImage);
+                    _UsLogado.Alterar(oUsuario);
+                    habilitaControles(false);
+                    carregaDados();
+                    MessageBox.Show("Seu dados foram alterados.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+                else
                 {
-                    MessageBox.Show("Impossivel cadastrar! " + MyGlobal.MsgErro(ex), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Cadastro Inválido!" + MyGlobal.MsgErro(ex), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    habilitaControles(false);
+                    carregaDados();
                 }
             }
-        }
-
-        //limpar os campos.
-        public void attDadosCampo()
-        {
-            
-        }
-
-        private void habilitaControles()
-        {
-            
+            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+            {
+                MessageBox.Show("Alteração Inválida!" + MyGlobal.MsgErro(ex), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Alteração Inválido!" + MyGlobal.MsgErro(ex), "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                carregaDados();
+                habilitaControles(false);
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (editarPerfil == false)
             {
-                txtNome.Enabled = true;
-                txtSobrenome.Enabled = true;
-                cboTipoUsuario.Enabled = true;
-                dtDataNascimento.Enabled = true;
-                txtBairro.Enabled = true;
-                cboCidade.Enabled = true;
-                cboEstado.Enabled = true;
-                btnSalvar.Enabled = true;
-                btnUploadImg.Enabled = true;
-                editarPerfil = true;
+                habilitaControles(true);
                 btnEditar.Text = "Cancelar";
-                
             }
 
             else if (editarPerfil == true)
             {
-                txtNome.Enabled = false;
-                txtSobrenome.Enabled = false;
-                cboTipoUsuario.Enabled = false;
-                dtDataNascimento.Enabled = false;
-                txtBairro.Enabled = false;
-                cboCidade.Enabled = false;
-                cboEstado.Enabled = false;
-                btnSalvar.Enabled = false;
-                btnUploadImg.Enabled = false;
-                editarPerfil = false;
+                habilitaControles(false);
                 btnEditar.Text = "Editar Perfil";
+                carregaDados();
             }
         }
-
-        
     }
 }

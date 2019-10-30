@@ -30,7 +30,7 @@
         {
             this.pnlMenuUser = new System.Windows.Forms.Panel();
             this.lblNickUsuario = new System.Windows.Forms.Label();
-            this.imgUsuario = new System.Windows.Forms.PictureBox();
+            this.imgPerfilUsuario = new System.Windows.Forms.PictureBox();
             this.btnSairMenuUser = new System.Windows.Forms.Button();
             this.btnSegurancaMenuUser = new System.Windows.Forms.Button();
             this.btnForumMenuUser = new System.Windows.Forms.Button();
@@ -40,14 +40,14 @@
             this.pnlContentUser = new System.Windows.Forms.Panel();
             this.pnlHeaderUser = new System.Windows.Forms.Panel();
             this.pnlMenuUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgUsuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPerfilUsuario)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenuUser
             // 
             this.pnlMenuUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.pnlMenuUser.Controls.Add(this.lblNickUsuario);
-            this.pnlMenuUser.Controls.Add(this.imgUsuario);
+            this.pnlMenuUser.Controls.Add(this.imgPerfilUsuario);
             this.pnlMenuUser.Controls.Add(this.btnSairMenuUser);
             this.pnlMenuUser.Controls.Add(this.btnSegurancaMenuUser);
             this.pnlMenuUser.Controls.Add(this.btnForumMenuUser);
@@ -67,20 +67,21 @@
             this.lblNickUsuario.Name = "lblNickUsuario";
             this.lblNickUsuario.Size = new System.Drawing.Size(140, 22);
             this.lblNickUsuario.TabIndex = 2;
-            this.lblNickUsuario.Text = "Isaias-dt";
             this.lblNickUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // imgUsuario
+            // imgPerfilUsuario
             // 
-            this.imgUsuario.BackgroundImage = global::EZAsk.Properties.Resources.imgLoginPadrao;
-            this.imgUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imgUsuario.InitialImage = global::EZAsk.Properties.Resources.imgLoginPadrao;
-            this.imgUsuario.Location = new System.Drawing.Point(35, 30);
-            this.imgUsuario.Name = "imgUsuario";
-            this.imgUsuario.Size = new System.Drawing.Size(65, 59);
-            this.imgUsuario.TabIndex = 0;
-            this.imgUsuario.TabStop = false;
+            this.imgPerfilUsuario.BackgroundImage = global::EZAsk.Properties.Resources.imgLoginPadrao;
+            this.imgPerfilUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgPerfilUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imgPerfilUsuario.ErrorImage = null;
+            this.imgPerfilUsuario.ImageLocation = "center";
+            this.imgPerfilUsuario.InitialImage = null;
+            this.imgPerfilUsuario.Location = new System.Drawing.Point(35, 30);
+            this.imgPerfilUsuario.Name = "imgPerfilUsuario";
+            this.imgPerfilUsuario.Size = new System.Drawing.Size(65, 59);
+            this.imgPerfilUsuario.TabIndex = 0;
+            this.imgPerfilUsuario.TabStop = false;
             // 
             // btnSairMenuUser
             // 
@@ -156,6 +157,7 @@
             this.btnRespostaMenuUser.TabIndex = 2;
             this.btnRespostaMenuUser.Text = "Respostas";
             this.btnRespostaMenuUser.UseVisualStyleBackColor = false;
+            this.btnRespostaMenuUser.Click += new System.EventHandler(this.btnRespostaMenuUser_Click);
             // 
             // btnPerguntaMenuUser
             // 
@@ -174,6 +176,7 @@
             this.btnPerguntaMenuUser.TabIndex = 1;
             this.btnPerguntaMenuUser.Text = "Perguntas";
             this.btnPerguntaMenuUser.UseVisualStyleBackColor = false;
+            this.btnPerguntaMenuUser.Click += new System.EventHandler(this.btnPerguntaMenuUser_Click);
             // 
             // btnPerfilMenuUser
             // 
@@ -229,7 +232,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAmbienteUsuario_FormClosing);
             this.Load += new System.EventHandler(this.FrmAmbienteUsuario_Load);
             this.pnlMenuUser.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.imgUsuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPerfilUsuario)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -242,10 +245,10 @@
         private System.Windows.Forms.Button btnForumMenuUser;
         private System.Windows.Forms.Button btnRespostaMenuUser;
         private System.Windows.Forms.Button btnPerguntaMenuUser;
-        private System.Windows.Forms.PictureBox imgUsuario;
         private System.Windows.Forms.Button btnSegurancaMenuUser;
         private System.Windows.Forms.Label lblNickUsuario;
         private System.Windows.Forms.Button btnSairMenuUser;
         private System.Windows.Forms.Panel pnlHeaderUser;
+        public  System.Windows.Forms.PictureBox imgPerfilUsuario;
     }
 }

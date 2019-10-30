@@ -30,9 +30,9 @@ namespace EZAsk
         public virtual DbSet<MsgSuporte> MsgSuporte { get; set; }
         public virtual DbSet<Pais> Pais { get; set; }
         public virtual DbSet<Resposta> Resposta { get; set; }
-        public virtual DbSet<TipoUsuario> TipoUsuario { get; set; }
-        public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<Cidade> Cidade { get; set; }
         public virtual DbSet<Estado> Estado { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Formacao> Formacao { get; set; }
     }
 }

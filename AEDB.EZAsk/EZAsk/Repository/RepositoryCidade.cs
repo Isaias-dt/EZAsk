@@ -29,11 +29,11 @@ namespace EZAsk.Repository
             return (from p in oDb.Cidade orderby p.nome select p).ToList();
         }
 
-        //public List<Cidade> SelecionarTodasUF(string UF)
-        //{
-        //    var estado = (from e in oDb.Estado where e.nome == UF select e.id);
-        //    //return (from p in oDb.Cidade where p.uf == estado select p).ToList();
-        //}
+        public List<Cidade> SelecionarTodasUF(int UF)
+        {
+            var estado = (from e in oDb.Estado where e.id == UF select e.id).FirstOrDefault();
+            return (from p in oDb.Cidade where p.uf == estado select p).ToList();
+        }
 
         public void Dispose()
         {

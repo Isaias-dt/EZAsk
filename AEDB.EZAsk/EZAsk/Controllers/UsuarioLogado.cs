@@ -14,15 +14,19 @@ namespace EZAsk.Controllers
         RepositoryUsuario _RepositoryUsuario;
         RepositoryCidade _RepositoryCidade;
         RepositoryEstado _RepositoryEstado;
-        RepositoryTipoUsuario _RepositoryTipoUs;
-        private string emailUsuario;
+        RepositoryFormacao _RepositoryFormacao;
+
+        public static string idEmailLogado = "isaias-dt@hotmail.com";
+
+        public static string IdEmailLogado { get => idEmailLogado; set => idEmailLogado = value; }
 
         public UsuarioLogado()
-        {
+        {   
             _RepositoryCidade = new RepositoryCidade();
             _RepositoryUsuario = new RepositoryUsuario();
             _RepositoryEstado = new RepositoryEstado();
-            _RepositoryTipoUs = new RepositoryTipoUsuario();
+            _RepositoryFormacao = new RepositoryFormacao();
+
         }
 
         public void Incluir(Usuario oUsuario)
@@ -49,11 +53,18 @@ namespace EZAsk.Controllers
         {
             return _RepositoryUsuario.SelecionarTodos();
         }
+
+        public Usuario AutenticaUsuario(string nick, string senha)
+        {
+            return _RepositoryUsuario.ValidaUsuario(nick, senha);
+        }
+
         // retorna usuario ou null
         public Usuario getEmail(string email)
         {
             return _RepositoryUsuario.ProucuraEmail(email);
         }
+
         // retorna email ou null
         public Usuario getNick(string nick)
         {
@@ -72,6 +83,11 @@ namespace EZAsk.Controllers
             return _RepositoryCidade.SelecionarTodas();
         }
 
+        public List<Cidade> SelecionarTodasUf(int UF)
+        {
+            return _RepositoryCidade.SelecionarTodasUF(UF);
+        }
+
         /**** Estado ****/
 
         public Estado SelecionarEstado(int cod)
@@ -84,21 +100,16 @@ namespace EZAsk.Controllers
             return _RepositoryEstado.SelecionarTodos();
         }
 
-        /**** Tipo usuario ****/
+        /**** formacão ****/
 
-        public TipoUsuario SelecionarTipoUs(int cod)
+        public Formacao SelecionarFormacao(int cod)
         {
-            return _RepositoryTipoUs.Selecionar(cod);
+            return _RepositoryFormacao.Selecionar(cod);
         }
 
-        public List<TipoUsuario> SelecionarTodosTipoUs()
+        public List<Formacao> SelecionarTodasFormacao()
         {
-            return _RepositoryTipoUs.SelecionarTodos();
-        }
-
-        public void setUsuarioLogado(string email)
-        {
-            this.emailUsuario = email;
+            return _RepositoryFormacao.SelecionarTodos();
         }
 
         public void Dispose()
@@ -106,7 +117,7 @@ namespace EZAsk.Controllers
             _RepositoryUsuario.Dispose();
             _RepositoryCidade.Dispose();
             _RepositoryEstado.Dispose();
-            _RepositoryTipoUs.Dispose();
+            _RepositoryFormacao.Dispose();
         }
     }
 }

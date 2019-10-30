@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EZAsk;
 using EZAsk.Helper;
+using EZAsk.Controllers;
 
 namespace EZAsk
 {
@@ -16,16 +17,38 @@ namespace EZAsk
     {
 
         FrmPrincipal frmPrincipal = new FrmPrincipal();
+        UsuarioLogado _UsLogado = new UsuarioLogado();
+        Usuario oUsuario;
+
+        public static string cacheEmailUsuario;
+        public static string cacheNomeLogin;
+        public static string cacheNomeUsuario;
+        public static bool cacheUsuarioAtivo;
+        public static int cacheCidade;
+        public static string cacheBairro;
+        public static int cacheTipoUsuario;
+        public static byte[] cacheImgUsuario;
+        public static int cacheEstado;
+        public static string cacheDataNascimento;
+
         public FrmAmbienteUsuario()
         {
             InitializeComponent();
+            oUsuario = _UsLogado.Selecionar(UsuarioLogado.IdEmailLogado);
         }
 
         private void FrmAmbienteUsuario_Load(object sender, EventArgs e)
         {
-            this.Parent = frmPrincipal.pnlPrincipal;
+            carregaDados();
         }
 
+        // seta valores nos controles. 
+        public void carregaDados()
+        {
+            lblNickUsuario.Text = oUsuario.NomeLogin;
+            imgPerfilUsuario.BackgroundImage = MyGlobal.byteArrayToImage(oUsuario.ImgUsuario);
+        }
+ 
         private void abrirFrmFilho(object formFilho, bool Dock = true)
         {
             if (this.pnlContentUser.Controls.Count > 0)
@@ -41,6 +64,7 @@ namespace EZAsk
             frmF.Show();
         }
 
+        // Botões menu.
         private void btnPerfilMenuUser_Click(object sender, EventArgs e)
         {
             abrirFrmFilho(new FrmPerfilUsuario());
@@ -56,6 +80,16 @@ namespace EZAsk
             abrirFrmFilho(new FrmSegUsuario());
         }
 
+        private void btnPerguntaMenuUser_Click(object sender, EventArgs e)
+        {
+            abrirFrmFilho(new FrmPergunta());
+        }
+
+        private void btnRespostaMenuUser_Click(object sender, EventArgs e)
+        {
+            abrirFrmFilho(new FrmResposta());
+        }
+
         private void btnSairMenuUser_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -68,5 +102,7 @@ namespace EZAsk
                 e.Cancel = true;
             }
         }
+
+       
     }
 }

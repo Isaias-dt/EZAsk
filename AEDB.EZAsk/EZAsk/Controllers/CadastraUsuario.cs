@@ -13,14 +13,14 @@ namespace EZAsk.Controllers
         RepositoryUsuario _RepositoryUsuario;
         RepositoryCidade _RepositoryCidade;
         RepositoryEstado _RepositoryEstado;
-        RepositoryTipoUsuario _RepositoryTipoUs;
+        RepositoryFormacao _RepositoryTipoUs;
 
         public CadastraUsuario()
         {
             _RepositoryCidade = new RepositoryCidade();
             _RepositoryUsuario = new RepositoryUsuario();
             _RepositoryEstado = new RepositoryEstado();
-            _RepositoryTipoUs = new RepositoryTipoUsuario();
+            _RepositoryTipoUs = new RepositoryFormacao();
         }
 
         public void Incluir(Usuario oUsuario)

@@ -144,6 +144,7 @@
             this.txtSenhaUsuario.PasswordChar = '●';
             this.txtSenhaUsuario.Size = new System.Drawing.Size(356, 26);
             this.txtSenhaUsuario.TabIndex = 3;
+            this.txtSenhaUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSenhaUsuario_KeyPress);
             // 
             // btnCadastraUsuario
             // 
@@ -228,8 +229,6 @@
             this.Name = "FrmCadastraUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Usuário";
-            this.Activated += new System.EventHandler(this.FrmCadastraUsuario_Activated);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmCadastraUsuario_FormClosed);
             this.pnlHeaderCadUsuario.ResumeLayout(false);
             this.pnlHeaderCadUsuario.PerformLayout();
             this.ResumeLayout(false);

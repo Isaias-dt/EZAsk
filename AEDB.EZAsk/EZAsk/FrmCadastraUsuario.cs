@@ -25,11 +25,6 @@ namespace EZAsk
             InitializeComponent();
         }
 
-        private void FrmCadastraUsuario_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
-
         //limpar os campos.
         public void LimpaControles()
         {
@@ -70,11 +65,13 @@ namespace EZAsk
                 MessageBox.Show("Por favor digite uma senha!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
+
             else if (MyGlobal.ValidarEmail(txtEmailUsuario.Text) == false)
             { 
                 MessageBox.Show("Email inválido", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
+
             else if (MyGlobal.ValidarNome(txtNomeUsuario.Text) == false)
             {
                 MessageBox.Show("Nome inválido", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -125,6 +122,7 @@ namespace EZAsk
                     oUsuario.NomeLogin = txtNomeLogin.Text;
                     oUsuario.EmailUsuario = txtEmailUsuario.Text;
                     oUsuario.SenhaUsuario = Criptografia.gerarHashMd5(txtSenhaUsuario.Text);
+                    oUsuario.UsuarioAtivo = false;
                     _Control.Incluir(oUsuario);
                     LimpaControles();
 
@@ -154,11 +152,6 @@ namespace EZAsk
             }
         }
 
-        private void FrmCadastraUsuario_Activated(object sender, EventArgs e)
-        {   // Sintaxes incorreta consertar.
-
-        }
-
         private void txtNomeUsuario_Leave(object sender, EventArgs e)
         {
             if (MyGlobal.ValidarNome(txtNomeUsuario.Text) == false && txtNomeUsuario.Text != "")
@@ -183,6 +176,11 @@ namespace EZAsk
             {
                 lblInfNomeLogin.Visible = false;
             }
+        }
+
+        private void txtSenhaUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            MyGlobal.limitarDigitoSenha(e);
         }
     }
 }

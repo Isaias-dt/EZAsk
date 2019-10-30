@@ -32,8 +32,6 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtSobrenome = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -41,7 +39,7 @@
             this.cboCidade = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnUploadImg = new System.Windows.Forms.Button();
-            this.cboTipoUsuario = new System.Windows.Forms.ComboBox();
+            this.cboFormacao = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.imgPerfilUsuario = new System.Windows.Forms.PictureBox();
             this.dtDataNascimento = new System.Windows.Forms.DateTimePicker();
@@ -74,7 +72,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(76, 345);
+            this.label2.Location = new System.Drawing.Point(76, 270);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 18);
             this.label2.TabIndex = 0;
@@ -84,40 +82,21 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(324, 345);
+            this.label3.Location = new System.Drawing.Point(324, 270);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 18);
             this.label3.TabIndex = 0;
             this.label3.Text = "Bairro:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(9, 192);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 18);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Sobrenome:";
-            // 
-            // txtSobrenome
-            // 
-            this.txtSobrenome.Enabled = false;
-            this.txtSobrenome.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSobrenome.Location = new System.Drawing.Point(12, 213);
-            this.txtSobrenome.Name = "txtSobrenome";
-            this.txtSobrenome.Size = new System.Drawing.Size(378, 26);
-            this.txtSobrenome.TabIndex = 1;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(130, 267);
+            this.label5.Location = new System.Drawing.Point(130, 198);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 18);
+            this.label5.Size = new System.Drawing.Size(91, 18);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Tipo:";
+            this.label5.Text = "Formação:";
             // 
             // btnEditar
             // 
@@ -127,10 +106,10 @@
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnEditar.Location = new System.Drawing.Point(12, 434);
+            this.btnEditar.Location = new System.Drawing.Point(12, 365);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(118, 32);
-            this.btnEditar.TabIndex = 2;
+            this.btnEditar.TabIndex = 7;
             this.btnEditar.Text = "Editar Perfil";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -144,10 +123,10 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSalvar.Location = new System.Drawing.Point(136, 434);
+            this.btnSalvar.Location = new System.Drawing.Point(136, 365);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(118, 32);
-            this.btnSalvar.TabIndex = 2;
+            this.btnSalvar.TabIndex = 8;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -156,7 +135,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(9, 267);
+            this.label6.Location = new System.Drawing.Point(9, 198);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 18);
             this.label6.TabIndex = 0;
@@ -164,14 +143,17 @@
             // 
             // cboCidade
             // 
+            this.cboCidade.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboCidade.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboCidade.DropDownWidth = 294;
             this.cboCidade.Enabled = false;
             this.cboCidade.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCidade.FormattingEnabled = true;
             this.cboCidade.ItemHeight = 18;
-            this.cboCidade.Location = new System.Drawing.Point(79, 366);
+            this.cboCidade.Location = new System.Drawing.Point(79, 291);
             this.cboCidade.Name = "cboCidade";
             this.cboCidade.Size = new System.Drawing.Size(242, 26);
-            this.cboCidade.TabIndex = 3;
+            this.cboCidade.TabIndex = 5;
             // 
             // openFileDialog1
             // 
@@ -189,21 +171,24 @@
             this.btnUploadImg.Location = new System.Drawing.Point(136, 79);
             this.btnUploadImg.Name = "btnUploadImg";
             this.btnUploadImg.Size = new System.Drawing.Size(118, 32);
-            this.btnUploadImg.TabIndex = 2;
+            this.btnUploadImg.TabIndex = 0;
             this.btnUploadImg.Text = "Open File";
             this.btnUploadImg.UseVisualStyleBackColor = false;
             this.btnUploadImg.Click += new System.EventHandler(this.btnUploadImg_Click);
             // 
-            // cboTipoUsuario
+            // cboFormacao
             // 
-            this.cboTipoUsuario.Enabled = false;
-            this.cboTipoUsuario.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboTipoUsuario.FormattingEnabled = true;
-            this.cboTipoUsuario.ItemHeight = 18;
-            this.cboTipoUsuario.Location = new System.Drawing.Point(133, 288);
-            this.cboTipoUsuario.Name = "cboTipoUsuario";
-            this.cboTipoUsuario.Size = new System.Drawing.Size(242, 26);
-            this.cboTipoUsuario.TabIndex = 3;
+            this.cboFormacao.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboFormacao.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboFormacao.DropDownWidth = 730;
+            this.cboFormacao.Enabled = false;
+            this.cboFormacao.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboFormacao.FormattingEnabled = true;
+            this.cboFormacao.ItemHeight = 18;
+            this.cboFormacao.Location = new System.Drawing.Point(133, 219);
+            this.cboFormacao.Name = "cboFormacao";
+            this.cboFormacao.Size = new System.Drawing.Size(242, 26);
+            this.cboFormacao.TabIndex = 3;
             // 
             // label7
             // 
@@ -212,7 +197,7 @@
             this.label7.Location = new System.Drawing.Point(133, 63);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(125, 13);
-            this.label7.TabIndex = 5;
+            this.label7.TabIndex = 0;
             this.label7.Text = "Trocar foto de perfil:";
             // 
             // imgPerfilUsuario
@@ -233,27 +218,28 @@
             this.dtDataNascimento.Enabled = false;
             this.dtDataNascimento.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDataNascimento.Location = new System.Drawing.Point(12, 288);
+            this.dtDataNascimento.Location = new System.Drawing.Point(12, 219);
             this.dtDataNascimento.MaxDate = new System.DateTime(2009, 12, 31, 0, 0, 0, 0);
+            this.dtDataNascimento.MinDate = new System.DateTime(1929, 1, 1, 0, 0, 0, 0);
             this.dtDataNascimento.Name = "dtDataNascimento";
             this.dtDataNascimento.Size = new System.Drawing.Size(115, 26);
-            this.dtDataNascimento.TabIndex = 6;
+            this.dtDataNascimento.TabIndex = 2;
             this.dtDataNascimento.Value = new System.DateTime(2009, 12, 31, 0, 0, 0, 0);
             // 
             // txtBairro
             // 
             this.txtBairro.Enabled = false;
             this.txtBairro.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBairro.Location = new System.Drawing.Point(327, 366);
+            this.txtBairro.Location = new System.Drawing.Point(327, 291);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(242, 26);
-            this.txtBairro.TabIndex = 1;
+            this.txtBairro.TabIndex = 6;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(9, 345);
+            this.label9.Location = new System.Drawing.Point(9, 270);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(66, 18);
             this.label9.TabIndex = 0;
@@ -261,14 +247,16 @@
             // 
             // cboEstado
             // 
+            this.cboEstado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboEstado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboEstado.Enabled = false;
             this.cboEstado.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEstado.FormattingEnabled = true;
             this.cboEstado.ItemHeight = 18;
-            this.cboEstado.Location = new System.Drawing.Point(12, 366);
+            this.cboEstado.Location = new System.Drawing.Point(12, 291);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(61, 26);
-            this.cboEstado.TabIndex = 3;
+            this.cboEstado.TabIndex = 4;
             // 
             // FrmPerfilUsuario
             // 
@@ -279,7 +267,7 @@
             this.Controls.Add(this.dtDataNascimento);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.imgPerfilUsuario);
-            this.Controls.Add(this.cboTipoUsuario);
+            this.Controls.Add(this.cboFormacao);
             this.Controls.Add(this.cboEstado);
             this.Controls.Add(this.cboCidade);
             this.Controls.Add(this.btnUploadImg);
@@ -287,8 +275,6 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtSobrenome);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -311,8 +297,6 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtSobrenome;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnSalvar;
@@ -321,7 +305,7 @@
         private System.Windows.Forms.PictureBox imgPerfilUsuario;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnUploadImg;
-        private System.Windows.Forms.ComboBox cboTipoUsuario;
+        private System.Windows.Forms.ComboBox cboFormacao;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtDataNascimento;
         private System.Windows.Forms.TextBox txtBairro;

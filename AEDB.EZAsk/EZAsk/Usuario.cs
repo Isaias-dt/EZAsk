@@ -28,20 +28,20 @@ namespace EZAsk
         public Nullable<bool> UsuarioAtivo { get; set; }
         public Nullable<int> permissao { get; set; }
         public Nullable<int> Cidade { get; set; }
-        public Nullable<int> Bairro { get; set; }
-        public Nullable<int> TipoUsuario { get; set; }
+        public string Bairro { get; set; }
+        public Nullable<int> Formacao { get; set; }
         public byte[] ImgUsuario { get; set; }
         public Nullable<int> Estado { get; set; }
         public Nullable<int> Pais { get; set; }
         public string DataNascimento { get; set; }
     
+        public virtual Cidade Cidade1 { get; set; }
+        public virtual Estado Estado1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Forum> Forum { get; set; }
         public virtual Pais Pais1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Resposta> Resposta { get; set; }
-        public virtual TipoUsuario TipoUsuario1 { get; set; }
-        public virtual Cidade Cidade1 { get; set; }
-        public virtual Estado Estado1 { get; set; }
+        public virtual Formacao Formacao1 { get; set; }
     }
 }
