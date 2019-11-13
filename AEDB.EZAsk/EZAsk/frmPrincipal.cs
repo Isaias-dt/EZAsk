@@ -31,7 +31,7 @@ namespace EZAsk
             this.pnlPrincipal.Tag = frmF;
             frmF.Show();
         }
-        
+
         // Esconde menu.
         private void IconMenuPrincipal_Click(object sender, EventArgs e)
         {
@@ -75,14 +75,19 @@ namespace EZAsk
             abrirFrmFilho(new FrmSobreSW());
         }
 
-        private void btnRecConta_Click(object sender, EventArgs e)
-        {
-            abrirFrmFilho(new FrmRecuperarConta());
-        }
-
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public static void abrirCadUs(object frm)
+        {
+            new FrmPrincipal().abrirFrmFilho(frm);
+        }
+
+        public static void FrmAmbUs(object formFilho)
+        {
+            
         }
     }
 }

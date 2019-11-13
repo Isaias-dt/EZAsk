@@ -41,7 +41,7 @@ namespace EZAsk.Repository
         public Usuario Selecionar(string str)
         {
             //FirstOrDefault() : se não achar registro no campo da tabela retorna null.
-            return (from p in oDb.Usuario where p.EmailUsuario == str select p).FirstOrDefault();
+            return (from p in oDb.Usuario where (p.EmailUsuario == str || p.NomeLogin == str) select p).FirstOrDefault();
         }
 
         public Usuario ValidaUsuario(string nick, string senha)

@@ -117,4 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="fontDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnAnexarImg.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAKYAAACmAd19/zgAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAADd0lEQVRIS2P4//8/AxAwMTMzp/IJCGzm5xe4CMSXyMDnOTg4moBmyYDMhGEQYOfm5jkrJS3zMyU9
+        +393/1SycGfv5P9xiak/uLl57wPNZINbwM3N3Wtsav599Ybt/5eu2vg/K7fwr6m55SdjEzMwbmhuf9DS
+        3nO/obntAYgNE8eFuXl4fvDw8OwCWmIMtYDnWX1Tx3+QBXLyCl8Tk1O/rFy7/v+a9ZvA+Prte/+v3br7
+        /8rN22A2TBwfnjN/4T9lFZUPrKysKQxA4gfI8Prmjv/2Do6fnr56+58a+NipM/8FBQXvMLCysYEtiI5N
+        /F9ZU4tVMbmYnZ39B8UWzFu05L+NpdGn+Pjor8dOn0WRo9iCfYeP/leVE/xyYIbb/+kVZn91tZQ/I8sT
+        ZUFzW8c/cVn572FRMb8fPnuJIldUUvyrM9fo74+jUf9BWElW8OuZC5fh8gQtWL95638eSblvdnMP/Jew
+        dP1WXFH1E1l+y45d/w3URb7cWR/wf1Ov438VBckvyPJ4LXj0/NV/KUWVrxZ9a//7HHz933X91f9cAsI/
+        Lt+4BVcDwo3Nzb8U5cS/2tuafdq6cw+KHF4Lmto6/khYu38BGQ7DqrFFP6MSkr4jG4IP47QA5EpuQZEf
+        zqvOww0HYY8dD/5zCor+OH7mHIZh2DBOC/xDI76qJ5b/RDYchnXzO/44efp8RTcMG8ZqwbZde/9zi0t/
+        99rzFMNwEPbe9xwY8bLf0MN7/pJlf5V19D87eXp/vXT9JnYLKqpr/ytqan81bV+C1XAYNmle8E9T3wju
+        i7yS8h880grfTFoW/tfMqPstIiXz/ejJM5gWqKqp/xc1skWJWFxYUF3/u4mt/WcNA5NPokY2Xz223YXL
+        mXYs/ccnKv4dWMf8QbGAmYXln+OyUygG4cLWU7f9Z+bg/G85ceN/nwOvMOQtJ274z8jI9BfFAoWABKwR
+        iwtL2Pn816+YjFUOhJnYgEHEy8d3Z8qMeWALNNJqsCrEhR2XnvwvqGWCVQ6EwRYAwylFWlrmg7mlNckW
+        gDAobyCHPzIGWwCtmI25uLh2yXpGfsCmEB/23vvsv7x/Aoa486pz/9mFxJ4i1/5s7AIij7WyW/7Zzt77
+        327ufrKxeffK/0K65t84JWTK4BZALZHhlpTrZxMUvcAmIHyJXMwpLrOPXVDUi4GBgREAZjPKESFDzf8A
+        AAAASUVORK5CYII=
+</value>
+  </data>
 </root>

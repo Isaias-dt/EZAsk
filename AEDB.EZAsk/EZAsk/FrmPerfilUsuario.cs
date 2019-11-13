@@ -23,7 +23,7 @@ namespace EZAsk
         public FrmPerfilUsuario()
         {
             InitializeComponent();
-            oUsuario = _UsLogado.Selecionar(UsuarioLogado.IdEmailLogado);
+            oUsuario = _UsLogado.Selecionar(new UsuarioLogado().IdEmailLogado);
         }
 
         private void FrmPerfilUsuario_Load(object sender, EventArgs e)
@@ -54,16 +54,32 @@ namespace EZAsk
         private void carregaDados()
         {
             txtNome.Text = oUsuario.NomeUsuario;
+
             if (oUsuario.DataNascimento != null)
                 dtDataNascimento.Text = oUsuario.DataNascimento;
+            else
+                dtDataNascimento.Text = null;
+
             if (oUsuario.Cidade != null)
                 cboCidade.SelectedValue = oUsuario.Cidade;
+            else
+                cboCidade.SelectedValue = "";
+
             if (oUsuario.Estado != null)
                 cboEstado.SelectedValue = oUsuario.Estado;
+            else
+                cboEstado.SelectedValue = "";
+
             if (oUsuario.Bairro != null)
                 txtBairro.Text = oUsuario.Bairro;
+            else
+                txtBairro.Text = "";
+
             if (oUsuario.Formacao != null)
                 cboFormacao.SelectedValue = oUsuario.Formacao;
+            else
+                cboFormacao.SelectedValue = "";
+
             if (oUsuario.ImgUsuario != null)
                 imgPerfilUsuario.BackgroundImage = MyGlobal.byteArrayToImage(oUsuario.ImgUsuario);
         }

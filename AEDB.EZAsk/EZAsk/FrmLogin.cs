@@ -16,17 +16,16 @@ namespace EZAsk
 {
     public partial class FrmLogin : Form
     {
-        Login _Control = new Login();
+        Login _Us = new Login();
         int qtsTentativaLogin = 0;
         FrmPrincipal frmPrincipal = new FrmPrincipal();
-        UsuarioLogado _UsLogado = new UsuarioLogado();
+        Usuario oUsuario;
 
         public FrmLogin()
         {
             InitializeComponent();
-            
         }
-
+         
         private void abrirFrmFilho(object formFilho)
         {
             if (frmPrincipal.pnlPrincipal.Controls.Count > 0)
@@ -54,6 +53,7 @@ namespace EZAsk
         // verifica se os campos estão vazio se estiver retorna false se não retorno true.
         public bool validaControle()
         {
+
             if (txtAltUsuario.Text.Trim() == "")
             {
                 MessageBox.Show("Digite o email ou nome de usuario para se conectar!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -75,13 +75,9 @@ namespace EZAsk
         // Botão Cadastrar da tela login.
         private void btnCadastreSe_Click(object sender, EventArgs e)
         {
-            FrmCadastraUsuario frmCadUsuario = new FrmCadastraUsuario();
-            FrmPrincipal frmPrincipal = new FrmPrincipal();
-
-            frmCadUsuario.MdiParent = MyGlobal.InstanceFrmPrincipal();
-            this.Close();
-            //frmPrincipal.abrirFrmFilho(new FrmCadastraUsuario());
-            frmCadUsuario.Show();
+            //erro não chama o formulario dentro do panel#####
+            FrmPrincipal.abrirCadUs(new FrmAmbienteUsuario());
+            
         }
 
         // Botão Entrar no ambiente usuário.
@@ -92,7 +88,7 @@ namespace EZAsk
                 if (validaControle())
                 {   // Variavel recebe null se o nick e senha não for igual. 
                     
-                    var bdUsuario = _Control.AutenticaUsuario(txtAltUsuario.Text, txtAltSenha.Text);
+                    var bdUsuario = _Us.AutenticaUsuario(txtAltUsuario.Text, txtAltSenha.Text);
                     
 
                     if (bdUsuario == null)
@@ -108,16 +104,22 @@ namespace EZAsk
                         }
                     }
                     else
-                    { 
-                        // Quando for autenticado.
+                    {
+                        if (!(bool)oUsuario.UsuarioAtivo)
+                        {
+                            // Quando for autenticado.
 
-                        UsuarioLogado.IdEmailLogado = bdUsuario.EmailUsuario; // Envia o id para metodo get e set FrmAmbienteUsuario.
-                        MyGlobal.abrirFrmFilho(new FrmAmbienteUsuario(), frmPrincipal.pnlPrincipal);
-                        new FrmAmbienteUsuario().Show();
-                        new FrmPrincipal().Close();
-                        this.Close();
-                      
-                    }                   
+                            new UsuarioLogado().IdEmailLogado = bdUsuario.EmailUsuario; // Envia o id para UsuarioLogado.
+                            new FrmAmbienteUsuario().Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuario já esta logado!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            LimpaControles();
+                            txtAltUsuario.Focus();
+                        }
+
+                    }
                 }
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException ex)

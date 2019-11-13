@@ -37,6 +37,8 @@
             this.btnRespostaMenuUser = new System.Windows.Forms.Button();
             this.btnPerguntaMenuUser = new System.Windows.Forms.Button();
             this.btnPerfilMenuUser = new System.Windows.Forms.Button();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.pnlContentUser = new System.Windows.Forms.Panel();
             this.pnlHeaderUser = new System.Windows.Forms.Panel();
             this.pnlMenuUser.SuspendLayout();
@@ -54,6 +56,7 @@
             this.pnlMenuUser.Controls.Add(this.btnRespostaMenuUser);
             this.pnlMenuUser.Controls.Add(this.btnPerguntaMenuUser);
             this.pnlMenuUser.Controls.Add(this.btnPerfilMenuUser);
+            this.pnlMenuUser.Controls.Add(this.shapeContainer1);
             this.pnlMenuUser.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMenuUser.Location = new System.Drawing.Point(0, 0);
             this.pnlMenuUser.Name = "pnlMenuUser";
@@ -63,7 +66,7 @@
             // lblNickUsuario
             // 
             this.lblNickUsuario.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNickUsuario.Location = new System.Drawing.Point(-1, 92);
+            this.lblNickUsuario.Location = new System.Drawing.Point(0, 92);
             this.lblNickUsuario.Name = "lblNickUsuario";
             this.lblNickUsuario.Size = new System.Drawing.Size(140, 22);
             this.lblNickUsuario.TabIndex = 2;
@@ -94,7 +97,7 @@
             this.btnSairMenuUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSairMenuUser.ForeColor = System.Drawing.SystemColors.Control;
             this.btnSairMenuUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSairMenuUser.Location = new System.Drawing.Point(0, 327);
+            this.btnSairMenuUser.Location = new System.Drawing.Point(0, 350);
             this.btnSairMenuUser.Name = "btnSairMenuUser";
             this.btnSairMenuUser.Size = new System.Drawing.Size(140, 35);
             this.btnSairMenuUser.TabIndex = 4;
@@ -113,7 +116,7 @@
             this.btnSegurancaMenuUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSegurancaMenuUser.ForeColor = System.Drawing.SystemColors.Control;
             this.btnSegurancaMenuUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSegurancaMenuUser.Location = new System.Drawing.Point(0, 286);
+            this.btnSegurancaMenuUser.Location = new System.Drawing.Point(0, 309);
             this.btnSegurancaMenuUser.Name = "btnSegurancaMenuUser";
             this.btnSegurancaMenuUser.Size = new System.Drawing.Size(140, 35);
             this.btnSegurancaMenuUser.TabIndex = 4;
@@ -132,7 +135,7 @@
             this.btnForumMenuUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnForumMenuUser.ForeColor = System.Drawing.SystemColors.Control;
             this.btnForumMenuUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnForumMenuUser.Location = new System.Drawing.Point(0, 245);
+            this.btnForumMenuUser.Location = new System.Drawing.Point(0, 268);
             this.btnForumMenuUser.Name = "btnForumMenuUser";
             this.btnForumMenuUser.Size = new System.Drawing.Size(140, 35);
             this.btnForumMenuUser.TabIndex = 3;
@@ -151,7 +154,7 @@
             this.btnRespostaMenuUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRespostaMenuUser.ForeColor = System.Drawing.SystemColors.Control;
             this.btnRespostaMenuUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRespostaMenuUser.Location = new System.Drawing.Point(0, 204);
+            this.btnRespostaMenuUser.Location = new System.Drawing.Point(0, 227);
             this.btnRespostaMenuUser.Name = "btnRespostaMenuUser";
             this.btnRespostaMenuUser.Size = new System.Drawing.Size(140, 35);
             this.btnRespostaMenuUser.TabIndex = 2;
@@ -170,7 +173,7 @@
             this.btnPerguntaMenuUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPerguntaMenuUser.ForeColor = System.Drawing.SystemColors.Control;
             this.btnPerguntaMenuUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPerguntaMenuUser.Location = new System.Drawing.Point(0, 163);
+            this.btnPerguntaMenuUser.Location = new System.Drawing.Point(0, 186);
             this.btnPerguntaMenuUser.Name = "btnPerguntaMenuUser";
             this.btnPerguntaMenuUser.Size = new System.Drawing.Size(140, 35);
             this.btnPerguntaMenuUser.TabIndex = 1;
@@ -189,13 +192,35 @@
             this.btnPerfilMenuUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPerfilMenuUser.ForeColor = System.Drawing.SystemColors.Control;
             this.btnPerfilMenuUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPerfilMenuUser.Location = new System.Drawing.Point(0, 122);
+            this.btnPerfilMenuUser.Location = new System.Drawing.Point(0, 145);
             this.btnPerfilMenuUser.Name = "btnPerfilMenuUser";
             this.btnPerfilMenuUser.Size = new System.Drawing.Size(140, 35);
             this.btnPerfilMenuUser.TabIndex = 0;
             this.btnPerfilMenuUser.Text = "Meu Perfil";
             this.btnPerfilMenuUser.UseVisualStyleBackColor = false;
             this.btnPerfilMenuUser.Click += new System.EventHandler(this.btnPerfilMenuUser_Click);
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape1});
+            this.shapeContainer1.Size = new System.Drawing.Size(140, 515);
+            this.shapeContainer1.TabIndex = 5;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // lineShape1
+            // 
+            this.lineShape1.BorderColor = System.Drawing.SystemColors.Control;
+            this.lineShape1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.lineShape1.Enabled = false;
+            this.lineShape1.Name = "lineShape1";
+            this.lineShape1.X1 = 17;
+            this.lineShape1.X2 = 119;
+            this.lineShape1.Y1 = 128;
+            this.lineShape1.Y2 = 128;
             // 
             // pnlContentUser
             // 
@@ -229,6 +254,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmAmbienteUsuario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.FrmAmbienteUsuario_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAmbienteUsuario_FormClosing);
             this.Load += new System.EventHandler(this.FrmAmbienteUsuario_Load);
             this.pnlMenuUser.ResumeLayout(false);
@@ -250,5 +276,7 @@
         private System.Windows.Forms.Button btnSairMenuUser;
         private System.Windows.Forms.Panel pnlHeaderUser;
         public  System.Windows.Forms.PictureBox imgPerfilUsuario;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
     }
 }

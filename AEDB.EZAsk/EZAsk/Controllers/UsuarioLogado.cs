@@ -16,9 +16,9 @@ namespace EZAsk.Controllers
         RepositoryEstado _RepositoryEstado;
         RepositoryFormacao _RepositoryFormacao;
 
-        public static string idEmailLogado = "isaias-dt@hotmail.com";
+        private static string idEmailLogado = "isaias-dt@hotmail.com";
 
-        public static string IdEmailLogado { get => idEmailLogado; set => idEmailLogado = value; }
+        public string IdEmailLogado { get => idEmailLogado; set => idEmailLogado = value; }
 
         public UsuarioLogado()
         {   

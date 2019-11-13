@@ -32,11 +32,12 @@
             this.pnlMenuPrincipal = new System.Windows.Forms.Panel();
             this.IconMenuPrincipal = new System.Windows.Forms.PictureBox();
             this.btnMenuSobre = new System.Windows.Forms.Button();
-            this.btnRecConta = new System.Windows.Forms.Button();
             this.btnMenuForum = new System.Windows.Forms.Button();
             this.btnMenuCadastro = new System.Windows.Forms.Button();
             this.btnMenuLogin = new System.Windows.Forms.Button();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.pnlMenuPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IconMenuPrincipal)).BeginInit();
             this.SuspendLayout();
@@ -46,10 +47,10 @@
             this.pnlMenuPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.pnlMenuPrincipal.Controls.Add(this.IconMenuPrincipal);
             this.pnlMenuPrincipal.Controls.Add(this.btnMenuSobre);
-            this.pnlMenuPrincipal.Controls.Add(this.btnRecConta);
             this.pnlMenuPrincipal.Controls.Add(this.btnMenuForum);
             this.pnlMenuPrincipal.Controls.Add(this.btnMenuCadastro);
             this.pnlMenuPrincipal.Controls.Add(this.btnMenuLogin);
+            this.pnlMenuPrincipal.Controls.Add(this.shapeContainer1);
             this.pnlMenuPrincipal.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMenuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.pnlMenuPrincipal.Name = "pnlMenuPrincipal";
@@ -62,7 +63,7 @@
             this.IconMenuPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.IconMenuPrincipal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.IconMenuPrincipal.Image = ((System.Drawing.Image)(resources.GetObject("IconMenuPrincipal.Image")));
-            this.IconMenuPrincipal.Location = new System.Drawing.Point(3, 3);
+            this.IconMenuPrincipal.Location = new System.Drawing.Point(4, 12);
             this.IconMenuPrincipal.Name = "IconMenuPrincipal";
             this.IconMenuPrincipal.Size = new System.Drawing.Size(35, 32);
             this.IconMenuPrincipal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -81,30 +82,16 @@
             this.btnMenuSobre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuSobre.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuSobre.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnMenuSobre.Location = new System.Drawing.Point(0, 240);
+            this.btnMenuSobre.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuSobre.Image")));
+            this.btnMenuSobre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuSobre.Location = new System.Drawing.Point(0, 209);
             this.btnMenuSobre.Name = "btnMenuSobre";
             this.btnMenuSobre.Size = new System.Drawing.Size(170, 42);
             this.btnMenuSobre.TabIndex = 0;
             this.btnMenuSobre.Text = "Sobre";
+            this.btnMenuSobre.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMenuSobre.UseVisualStyleBackColor = false;
             this.btnMenuSobre.Click += new System.EventHandler(this.btnMenuSobre_Click);
-            // 
-            // btnRecConta
-            // 
-            this.btnRecConta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnRecConta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRecConta.FlatAppearance.BorderSize = 0;
-            this.btnRecConta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
-            this.btnRecConta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecConta.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRecConta.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnRecConta.Location = new System.Drawing.Point(0, 144);
-            this.btnRecConta.Name = "btnRecConta";
-            this.btnRecConta.Size = new System.Drawing.Size(170, 42);
-            this.btnRecConta.TabIndex = 0;
-            this.btnRecConta.Text = "Recuperar conta";
-            this.btnRecConta.UseVisualStyleBackColor = false;
-            this.btnRecConta.Click += new System.EventHandler(this.btnRecConta_Click);
             // 
             // btnMenuForum
             // 
@@ -115,11 +102,14 @@
             this.btnMenuForum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuForum.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuForum.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnMenuForum.Location = new System.Drawing.Point(0, 192);
+            this.btnMenuForum.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuForum.Image")));
+            this.btnMenuForum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuForum.Location = new System.Drawing.Point(0, 161);
             this.btnMenuForum.Name = "btnMenuForum";
             this.btnMenuForum.Size = new System.Drawing.Size(170, 42);
             this.btnMenuForum.TabIndex = 0;
             this.btnMenuForum.Text = "Forum";
+            this.btnMenuForum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMenuForum.UseVisualStyleBackColor = false;
             this.btnMenuForum.Click += new System.EventHandler(this.btnMenuForum_Click);
             // 
@@ -132,11 +122,14 @@
             this.btnMenuCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuCadastro.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuCadastro.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnMenuCadastro.Location = new System.Drawing.Point(0, 96);
+            this.btnMenuCadastro.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuCadastro.Image")));
+            this.btnMenuCadastro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuCadastro.Location = new System.Drawing.Point(0, 113);
             this.btnMenuCadastro.Name = "btnMenuCadastro";
             this.btnMenuCadastro.Size = new System.Drawing.Size(170, 42);
             this.btnMenuCadastro.TabIndex = 0;
             this.btnMenuCadastro.Text = "Cadastro";
+            this.btnMenuCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMenuCadastro.UseVisualStyleBackColor = false;
             this.btnMenuCadastro.Click += new System.EventHandler(this.btnMenuCadastro_Click);
             // 
@@ -149,11 +142,14 @@
             this.btnMenuLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuLogin.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuLogin.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnMenuLogin.Location = new System.Drawing.Point(0, 48);
+            this.btnMenuLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuLogin.Image")));
+            this.btnMenuLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuLogin.Location = new System.Drawing.Point(0, 65);
             this.btnMenuLogin.Name = "btnMenuLogin";
             this.btnMenuLogin.Size = new System.Drawing.Size(170, 42);
             this.btnMenuLogin.TabIndex = 0;
             this.btnMenuLogin.Text = "Login";
+            this.btnMenuLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMenuLogin.UseVisualStyleBackColor = false;
             this.btnMenuLogin.Click += new System.EventHandler(this.btnMenuLogin_Click);
             // 
@@ -167,6 +163,28 @@
             this.pnlPrincipal.Name = "pnlPrincipal";
             this.pnlPrincipal.Size = new System.Drawing.Size(630, 450);
             this.pnlPrincipal.TabIndex = 6;
+            // 
+            // lineShape1
+            // 
+            this.lineShape1.BorderColor = System.Drawing.SystemColors.Control;
+            this.lineShape1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.lineShape1.Enabled = false;
+            this.lineShape1.Name = "lineShape1";
+            this.lineShape1.X1 = 168;
+            this.lineShape1.X2 = 0;
+            this.lineShape1.Y1 = 53;
+            this.lineShape1.Y2 = 53;
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape1});
+            this.shapeContainer1.Size = new System.Drawing.Size(170, 450);
+            this.shapeContainer1.TabIndex = 2;
+            this.shapeContainer1.TabStop = false;
             // 
             // FrmPrincipal
             // 
@@ -198,7 +216,8 @@
         public System.Windows.Forms.Button btnMenuForum;
         public System.Windows.Forms.Button btnMenuCadastro;
         public System.Windows.Forms.PictureBox IconMenuPrincipal;
-        public System.Windows.Forms.Button btnRecConta;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
     }
 }
 

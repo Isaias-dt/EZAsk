@@ -34,7 +34,16 @@ namespace EZAsk
         public FrmAmbienteUsuario()
         {
             InitializeComponent();
-            oUsuario = _UsLogado.Selecionar(UsuarioLogado.IdEmailLogado);
+            oUsuario = _UsLogado.Selecionar(new UsuarioLogado().IdEmailLogado);
+            //try
+            //{
+            //    oUsuario.UsuarioAtivo = true;
+            //    _UsLogado.Alterar(oUsuario);
+            //}
+            //catch (Exception ex)
+            //{
+
+            //}
         }
 
         private void FrmAmbienteUsuario_Load(object sender, EventArgs e)
@@ -46,7 +55,8 @@ namespace EZAsk
         public void carregaDados()
         {
             lblNickUsuario.Text = oUsuario.NomeLogin;
-            imgPerfilUsuario.BackgroundImage = MyGlobal.byteArrayToImage(oUsuario.ImgUsuario);
+            if(oUsuario.ImgUsuario != null)
+                imgPerfilUsuario.BackgroundImage = MyGlobal.byteArrayToImage(oUsuario.ImgUsuario);
         }
  
         private void abrirFrmFilho(object formFilho, bool Dock = true)
@@ -101,8 +111,24 @@ namespace EZAsk
             {
                 e.Cancel = true;
             }
+            //else
+            //{
+            //    //fazer procedure nos banco.
+            //    try
+            //    {
+            //        oUsuario.UsuarioAtivo = false;
+            //        _UsLogado.Alterar(oUsuario);
+            //    }
+            //    catch (Exception ex)
+            //    {
+
+            //    }
+            //}
         }
 
-       
+        private void FrmAmbienteUsuario_Activated(object sender, EventArgs e)
+        {
+
+        }
     }
 }

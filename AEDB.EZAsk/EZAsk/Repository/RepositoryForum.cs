@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EZAsk.Controllers;
 using EZAsk.Helper;
 
 namespace EZAsk.Repository
@@ -44,7 +45,7 @@ namespace EZAsk.Repository
             return (from p in oDb.Forum where p.IDPost == cod select p).FirstOrDefault();
         }
 
-        public List<Forum> SelecionarTodos()
+        public List<Forum> SelecionarTodas()
         {
             return (from p in oDb.Forum orderby p.IDPost select p).ToList();
         }
