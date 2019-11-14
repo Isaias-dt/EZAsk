@@ -8,14 +8,14 @@ using EZAsk.Helper;
 
 namespace EZAsk.Controllers
 {
-    class Forum
+    class CForum
     {
         RepositoryForum _RepositoryForum;
         RepositoryCidade _RepositoryCidade;
         RepositoryEstado _RepositoryEstado;
         RepositoryFormacao _RepositoryFormacao;
 
-        public Forum()
+        public CForum()
         {
             _RepositoryCidade = new RepositoryCidade();
             _RepositoryForum = new RepositoryForum();
@@ -46,7 +46,7 @@ namespace EZAsk.Controllers
 
         public List<Forum> SelecionarTodos()
         {
-            return _RepositoryForum.SelecionarTodos();
+            return _RepositoryForum.SelecionarTodas();
         }
 
         /**** Cidade ****/

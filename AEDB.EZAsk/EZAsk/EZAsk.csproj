@@ -66,7 +66,7 @@
     <Compile Include="Cidade.cs">
       <DependentUpon>Dataezask.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\Forum.cs" />
+    <Compile Include="Controllers\CForum.cs" />
     <Compile Include="Controllers\UsuarioLogado.cs" />
     <Compile Include="Controllers\RecuperaConta.cs" />
     <Compile Include="Controllers\Login.cs" />

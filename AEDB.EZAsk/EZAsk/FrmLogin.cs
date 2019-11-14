@@ -25,18 +25,6 @@ namespace EZAsk
         {
             InitializeComponent();
         }
-         
-        private void abrirFrmFilho(object formFilho)
-        {
-            if (frmPrincipal.pnlPrincipal.Controls.Count > 0)
-                frmPrincipal.pnlPrincipal.Controls.RemoveAt(0);
-            Form frmF = formFilho as Form;
-            frmF.TopLevel = false;
-            frmF.Dock = DockStyle.Fill;
-            frmPrincipal.pnlPrincipal.Controls.Add(frmF);
-            frmPrincipal.pnlPrincipal.Tag = frmF;
-            frmF.Show();
-        }
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
@@ -74,10 +62,9 @@ namespace EZAsk
 
         // Botão Cadastrar da tela login.
         private void btnCadastreSe_Click(object sender, EventArgs e)
-        {
-            //erro não chama o formulario dentro do panel#####
-            FrmPrincipal.abrirCadUs(new FrmAmbienteUsuario());
-            
+        {            
+            frmPrincipal.btnMenuCadastro.PerformClick();
+            frmPrincipal.btnMenuCadastro_Click(null, null);
         }
 
         // Botão Entrar no ambiente usuário.
@@ -105,11 +92,13 @@ namespace EZAsk
                     }
                     else
                     {
-                        if (!(bool)oUsuario.UsuarioAtivo)
+                        if (!(bool)bdUsuario.UsuarioAtivo)
                         {
                             // Quando for autenticado.
 
                             new UsuarioLogado().IdEmailLogado = bdUsuario.EmailUsuario; // Envia o id para UsuarioLogado.
+                            LimpaControles();
+                            //frmPrincipal.abrirFrmFilho(new FrmAmbienteUsuario());
                             new FrmAmbienteUsuario().Show();
                         }
                         else

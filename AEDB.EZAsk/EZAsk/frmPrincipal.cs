@@ -60,7 +60,7 @@ namespace EZAsk
             abrirFrmFilho(new FrmLogin());
         }
 
-        private void btnMenuCadastro_Click(object sender, EventArgs e)
+        public void btnMenuCadastro_Click(object sender, EventArgs e)
         {
             abrirFrmFilho(new FrmCadastraUsuario());
         }
@@ -84,10 +84,6 @@ namespace EZAsk
         {
             new FrmPrincipal().abrirFrmFilho(frm);
         }
-
-        public static void FrmAmbUs(object formFilho)
-        {
-            
-        }
+        
     }
 }

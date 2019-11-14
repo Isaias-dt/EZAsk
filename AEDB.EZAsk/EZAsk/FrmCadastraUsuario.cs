@@ -182,5 +182,10 @@ namespace EZAsk
         {
             MyGlobal.limitarDigitoSenha(e);
         }
+
+        private void FrmCadastraUsuario_Load(object sender, EventArgs e)
+        {
+            this.Dock = DockStyle.Fill;
+        }
     }
 }

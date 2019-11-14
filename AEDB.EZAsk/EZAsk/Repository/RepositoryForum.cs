@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EZAsk.Controllers;
 using EZAsk.Helper;
 
 namespace EZAsk.Repository
